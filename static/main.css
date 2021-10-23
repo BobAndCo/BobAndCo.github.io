@@ -1,0 +1,43 @@
+p {
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+table {
+    border: 1px, solid black;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 26px;
+}
+
+body {
+    background-color: lightgrey;
+    width: 100%;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+img {
+    border: 1px solid black;
+}
+
+.paper {
+    width: 1000px;
+    background-color: white;
+    margin: auto;
+    height: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.text {
+    padding: 0.5in 0.5in 0.5in 0.5in;
+}
+
+a {
+    color: blue;
+}

@@ -1,0 +1,33 @@
+{% extends "index.html" %}
+{% block title %}Interesting Math{% endblock %}
+{% block content %}
+  Proof of the Riemann Hypothesis:
+  $$\pi = 3$$
+  $$e = \pi$$
+  We can conclude that
+  $$e = \pi = 3$$
+  We can also realise 
+  $$\pi^{2} = g = 10$$
+  Since $e = \pi$ we can say that 
+  $$e^2 = \pi^2 = 10$$
+  And we have therefore proven that 
+  $$\pi^2 = 10 \implies 3^2 = 10$$
+  From this we can trivially reach the Riemann Hypothesis, this has been left as an exercise to the reader.
+<hr>
+  I will present another brilliant proof.
+  $$0 < \frac{x^{4}(1-x)^{4}}{1+x^{2}}$$
+  It then follows that 
+  $$\int_{0}^{1}0\,dx < \int_{0}^{1}\frac{x^{4}(1-x)^{4}}{1+x^{2}}\, dx$$
+  $$0 < \int_{0}^{1}\frac{x^{4}-4x^{5}+6x^{6}-4x^{7}+x^{8}}{1+x^{2}}\, dx$$
+  $$0 < \int_{0}^{1}x^{6}-4x^{5}+5x^{4}-4x^{2}+4-\frac{4}{1+x^{2}}\, dx$$
+  $$0 < \left(\frac{x^{7}}{7} - \frac{4x^{6}}{6} + \frac{5x^{5}}{5} - \frac{4x^{3}}{3} + 4x + \arctan{x}\right)\Big|_{0}^{1}$$
+  $$0 < \left(\frac{x^{7}}{7} - \frac{2x^{6}}{3} + x^{5} - \frac{4x^{3}}{3} + 4x + \arctan{x}\right)\Big|_{0}^{1}$$
+  $$0 < \frac{1}{7} - \frac{2}{3} + 1 - \frac{4}{3} + 4 + 4\frac{\pi}{4}$$
+  $$0 < \frac{22}{7} - \pi$$
+  $$\pi < \frac{22}{7}$$
+<hr>
+<iframe src="../static/MathByMe/Mentorship_notes.pdf" width="100%" height="500px"></iframe>
+<hr>
+  <p>This next one is more of a fun thing than a proof but regardless we will try to find $\max{\{\sin x + \cos x}\}$, we will do this 2 ways, one uses calulus and the other is more elegant as it is just pure trignometry.</p>
+<p>I will start with the trignometric approach to this question. We can first notice that $\sin x = \cos(x + \frac{\pi}{2})$</p>
+{% endblock %}
