@@ -64,19 +64,30 @@
     </div>
 
     <p>
-        The second lemma is the following: If \(\forall v \in V\) and \(\langle v, u \rangle = 0\) then \(u = 0\).
+        The second lemma is the following. 
     </p>
 
+    <div id="container">
+        <b>Lemma II</b>
+        <p>
+        If for every \(v \in V\), the property that \(\langle v, u \rangle = 0\) then \(u = 0\).
+        </p>
+    </div>
+
+    <div id="proof">
     <p>
         Proof: If \(v = u\) then \(\langle u, u \rangle = 0 \iff u = 0\)
     </p>
+    </div>
 
     <p>
-        We can now go back to the proof of the Riesz Representation Theorem.
+        We will now use these two lemmas to prove the statement of the theorem. The point of these theorems should be obvious, in the sense that these are 
+        very natural steps that one might take when trying to prove this theorem. The linearity of the function and the inner product is also quite useful.
     </p>
 
+    <div id="proof">
     <p>
-        Proof: Let \(e_{1}, \dots, e_{n}\) be an orthonormal basis for \(V\). Now \(v \in \sum_{i=1}^{n}a_{i}e_{i}\) then we since \(\varphi\) is a linear 
+        Proof: Let \(e_{1}, \dots, e_{n}\) be an orthonormal basis for \(V\). Now \(v = \sum_{i=1}^{n}a_{i}e_{i}\) then we since \(\varphi\) is a linear 
         functional we may do the following
         \[
         \begin{aligned}
@@ -102,6 +113,7 @@
         \]
         but since \(\langle v, u_{1} - u_{2} \rangle = 0\) then \(u_{1} = u_{2}\) so this shows the uniqueness of the choice of \(u\).
     </p>
+    </div>
 
 </body>
 </html>
