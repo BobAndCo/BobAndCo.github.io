@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css?family=DotGothic16&display=swap');
+@import url('https://fonts.googleapis.com/css?family=UnifrakturMaguntia&display=swap');
+
+body {
+    margin-left: auto;
+    margin-right: auto;
+    width:55%;
+    font-size: 15pt;
+    background-color: #f2eecb;
+    color: black;
+    font-family: "IBM Plex Serif";
+  }
+
+#container {
+    padding: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: auto;
+    width: auto;
+    border: 2px solid black;
+    position: relative;
+}
+
+#proof {
+    padding: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: auto;
+    width: auto;
+    position: relative;
+}

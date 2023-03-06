@@ -1,6 +1,12 @@
 <!doctype html>
 
 <head>
+
+    <!-- Style -->
+    <link href='style.css' rel='stylesheet'>
+
+    <!-- LaTeX integration -->
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
 
     <!-- The loading of KaTeX is deferred to speed up page rendering -->
@@ -16,20 +22,34 @@
     <h1> Riesz Representation Theorem </h1>
 
     <p>
-        The Riesz Representation Theroem is a theorem for finite dimensiona inner product spaces that links the study of linear functionals 
-        with that of inner products. The theorem is as follows: Suppose \(V\) is an inner product space then, 
-        for every linear functional \(\varphi\) there is a unique vector \(u \in V\) such that 
+        The Riesz Representation Theroem is a theorem for finite dimensional inner product spaces that links the study of linear functionals 
+        with that of inner products. It gives us a way of looking at linear functionals in terms of specific vectors. 
+    </p>
+
+    <div id="container">
+    <b>Riesz Representation Theorem</b>
+    <p>
+        Suppose \(V\) is an inner product space then, for every linear functional \(\varphi\) there is a unique 
+        vector \(u \in V\) such that 
         \[
             \varphi(v) = \langle v, u \rangle
         \] 
     </p>
+    </div>
 
     <p>
-        Before jumping into the proof of the Riesz Representation Theorem there are two lemmas that need to be proved. The first is the following:
-        Given an orthonormal basis \(\alpha = \{e_{1}, \dots, e_{n}\}\) of \(V\) then any vector \(v \in V\) can be written 
-        \(\sum_{i=1}^{n}\langle v, e_{i}\rangle e_{i}\)
+        Before jumping into the proof of the Riesz Representation Theorem there are two lemmas that need to be proved. The first is the following lemma
     </p>
 
+    <div id="container">
+    <b>Lemma I</b>
+        <p>
+        Given an orthonormal basis \(\alpha = \{e_{1}, \dots, e_{n}\}\) of \(V\) then any vector \(v \in V\) can be written 
+        \(\sum_{i=1}^{n}\langle v, e_{i}\rangle e_{i}\)
+        </p>
+    </div>
+
+    <div id="proof">
     <p>
         Proof: We start by the fact that \(\alpha\) is a basis, then \(v = \sum_{i=1}^{n}a_{i}e_{i}\). Note now that 
         \[
@@ -39,8 +59,9 @@
                                     &= a_{j}
         \end{aligned}
         \]
-        This comes from the fact \(\langle e_{i}, e_{j} \rangle = \delta_{ij}\). Hence we may write \(v = \sum_{i=1}^{n}\langle v, e_{i}\rangle e_{i}\)
+        This comes from the fact \(\langle e_{i}, e_{j} \rangle = \delta_{ij}\). Hence we may write \(v = \sum_{i=1}^{n}\langle v, e_{i}\rangle e_{i}\).
     </p>
+    </div>
 
     <p>
         The second lemma is the following: If \(\forall v \in V\) and \(\langle v, u \rangle = 0\) then \(u = 0\).
@@ -81,5 +102,6 @@
         \]
         but since \(\langle v, u_{1} - u_{2} \rangle = 0\) then \(u_{1} = u_{2}\) so this shows the uniqueness of the choice of \(u\).
     </p>
+
 </body>
 </html>
