@@ -1,7 +1,8 @@
 <!doctype html>
+<html>
 
 <head>
-
+    
     <!-- Style -->
     <link href='style.css' rel='stylesheet'>
 
@@ -17,103 +18,14 @@
         onload="renderMathInElement(document.body);"></script>
   </head>
 
-<body>
+  <body>
+    <center><h1>This is website</h1></center>
+    <p>Hello, below are posts about topics in math that I interesting.</p>
 
-    <h1> Riesz Representation Theorem </h1>
-
-    <p>
-        The Riesz Representation Theroem is a theorem for finite dimensional inner product spaces that links the study of linear functionals 
-        with that of inner products. It gives us a way of looking at linear functionals in terms of specific vectors. 
-    </p>
-
-    <div id="container">
-    <b>Riesz Representation Theorem</b>
-    <p>
-        Suppose \(V\) is an inner product space then, for every linear functional \(\varphi\) there is a unique 
-        vector \(u \in V\) such that 
-        \[
-            \varphi(v) = \langle v, u \rangle
-        \] 
-    </p>
-    </div>
-
-    <p>
-        Before jumping into the proof of the Riesz Representation Theorem there are two lemmas that need to be proved. The first is the following lemma
-    </p>
-
-    <div id="container">
-    <b>Lemma I</b>
-        <p>
-        Given an orthonormal basis \(\alpha = \{e_{1}, \dots, e_{n}\}\) of \(V\) then any vector \(v \in V\) can be written 
-        \(\sum_{i=1}^{n}\langle v, e_{i}\rangle e_{i}\)
-        </p>
-    </div>
-
-    <div id="proof">
-    <p>
-        Proof: We start by the fact that \(\alpha\) is a basis, then \(v = \sum_{i=1}^{n}a_{i}e_{i}\). Note now that 
-        \[
-        \begin{aligned}
-            \langle v, e_{j}\rangle &= \left\langle \sum_{i=1}^{n}a_{i}e_{i}, e_{j}\right\rangle \\
-                                    &= \sum_{i=1}^{n}a_{i}\langle e_{i}, e_{j} \rangle \\
-                                    &= a_{j}
-        \end{aligned}
-        \]
-        This comes from the fact \(\langle e_{i}, e_{j} \rangle = \delta_{ij}\). Hence we may write \(v = \sum_{i=1}^{n}\langle v, e_{i}\rangle e_{i}\).
-    </p>
-    </div>
-
-    <p>
-        The second lemma is the following. 
-    </p>
-
-    <div id="container">
-        <b>Lemma II</b>
-        <p>
-        If for every \(v \in V\), the property that \(\langle v, u \rangle = 0\) then \(u = 0\).
-        </p>
-    </div>
-
-    <div id="proof">
-    <p>
-        Proof: If \(v = u\) then \(\langle u, u \rangle = 0 \iff u = 0\)
-    </p>
-    </div>
-
-    <p>
-        We will now use these two lemmas to prove the statement of the theorem. The point of these theorems should be obvious, in the sense that these are 
-        very natural steps that one might take when trying to prove this theorem. The linearity of the function and the inner product is also quite useful.
-    </p>
-
-    <div id="proof">
-    <p>
-        Proof: Let \(e_{1}, \dots, e_{n}\) be an orthonormal basis for \(V\). Now \(v = \sum_{i=1}^{n}a_{i}e_{i}\) then we since \(\varphi\) is a linear 
-        functional we may do the following
-        \[
-        \begin{aligned}
-            \varphi(v) &= \varphi\left(\sum_{i=1}^{n}a_{i}e_{i}\right) \\
-                       &= \sum_{i=1}^{n}a_{i}\varphi(e_{i}) \\
-                       &= \sum_{i=1}^{n}\langle v, e_{i} \rangle\varphi(e_{i}) \\
-                       &= \sum_{i=1}^{n}\langle v, \overline{\varphi(e_{i})}e_{i}\rangle \\
-                       &= \left\langle v, \sum_{i=1}^{n}\overline{\varphi(e_{i})}e_{i}\right\rangle
-        \end{aligned}
-        \]
-        So we see that \(u = \sum_{i=1}^{n}\overline{\varphi(e_{i})}e_{i}\). Now we must show that this choice of \(u\) is unique. 
-    </p>
-
-    <p>
-        To show that this is unique, suppose we had \(u_{1}, u_{2}\) such that \(\varphi(v) = \langle v, u_1 \rangle = \langle v, u_2 \rangle\) but note 
-        that, then for every \(v \in V\)
-        \[
-        \begin{aligned}
-            0 &= \varphi(v) - \varphi(v) \\
-              &= \langle v, u_{1} \rangle - \langle v, u_{2} \rangle \\
-              &= \langle v, u_{1} - u_{2} \rangle
-        \end{aligned}
-        \]
-        but since \(\langle v, u_{1} - u_{2} \rangle = 0\) then \(u_{1} = u_{2}\) so this shows the uniqueness of the choice of \(u\).
-    </p>
-    </div>
-
-</body>
+    <dl>
+     <dt> Linear Algebra </dt>
+	<dd> <a href="rieszRepresentation.html">Riesz Representation Theorem</a> </dd>
+    </dl>
+  </body>
+    
 </html>
