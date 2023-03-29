@@ -30,7 +30,7 @@
     <div id="container">
     <b>Riesz Representation Theorem</b>
     <p>
-        Suppose \(V\) is an inner product space then, for every linear functional \(\varphi\) there is a unique 
+        Suppose \(V\) is a finite dimensional inner product space then, for every linear functional \(\varphi\) there is a unique 
         vector \(u \in V\) such that 
         \[
             \varphi(v) = \langle v, u \rangle
@@ -158,7 +158,7 @@
 	nonetheless, this post not about the uses of the adjoint. 
     </p>
 
-    <h1> Riesz Representation Theorem</h1>
+    <h1> Riesz Representation Theorem, But More General</h1>
 
     <p>
 	This is not the whole story, however. In the sitation above we only consider when the inner product space is finite dimensional. But what 
@@ -177,5 +177,36 @@
 	</p>
 	Moreover the vector \(u\) is called the Riesz Representation of \(\varphi\)
     </div>
+	
+	<p>
+	Before we jump into details about this theorem, there is something interesting going on about with this, and that is that this theorem implies that every linear functional on a finite dimensional Hilbert space is continous.
+	Moreover, every linear functional on a finite dimensional Hilbert space is bounded. Let us first define what these terms even mean. To do this we shall define a topology on these Hilbert spaces. The best choice of topology is the one induced by the metric.
+	</p>
+	
+	<p>
+	For the definitions below suppose that \((H, d)\) is a Hilbert space with the metric \(d: H \times H \to \mathbb{R}\) defined in the usual way.
+	</p>
+	
+	<div id="container">
+	<b>Open Balls</b>
+	<p>
+		The open ball of radius \(\epsilon > 0\) around a point \(p\) is the set 
+		\[
+			B(p, \epsilon) = \{q \in H \mid d(p, q) < \epsilon\}
+		\]
+	</p>
+	</div>
+	<p>
+	Given these open balls we can define a basis for the metric topolgy.
+	</p>
+	<div id="container">
+	<b> The Topology on Hilbert Spaces </b>
+	<p>
+		Let \(\mathcal{B} = \{B(p, \epsilon) \mid \epsilon > 0, p \in H\}\), then this forms a basis for a topology on \((H, d)\)	
+	</p>
+	</div>
+	<p>
+	It is fact that this forms a basis for a topology, one can confirm for themselves. However the important fact here is that this topology does two interesting things. They make the addition and scalar multiplication continous maps. 
+	</p>
 </body>
 </html>
