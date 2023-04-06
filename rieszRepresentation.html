@@ -71,7 +71,7 @@
     <div id="container">
         <b>Lemma II</b>
         <p>
-        If for every \(v \in V\), the property that \(\langle v, u \rangle = 0\) then \(u = 0\).
+        If for every \(v \in V\), if \(u \in V\) has the property that \(\langle v, u \rangle = 0\) then \(u = 0\).
         </p>
     </div>
 
@@ -88,7 +88,7 @@
 
     <div id="proof">
     <p>
-        Proof: Let \(e_{1}, \dots, e_{n}\) be an orthonormal basis for \(V\). Now \(v = \sum_{i=1}^{n}a_{i}e_{i}\) then we since \(\varphi\) is a linear 
+        Proof: Let \(e_{1}, \dots, e_{n}\) be an orthonormal basis for \(V\). Now \(v = \sum_{i=1}^{n}a_{i}e_{i}\) then since \(\varphi\) is a linear 
         functional we may do the following
         \[
         \begin{aligned}
@@ -137,7 +137,7 @@
 
     <div id="proof">
 	<p>
-		Starting with \(T \in \mathcal{L}(V)\) then for every \(w \in V\) the map \(\varphi_{w}(v) = \langle Tv, w \rangle\) defines a linear functional, the proof of that claim follows directly from the linearity of \(T\) and
+		Proof: Starting with \(T \in \mathcal{L}(V)\) then for every \(w \in V\) the map \(\varphi_{w}(v) = \langle Tv, w \rangle\) defines a linear functional, the proof of that claim follows directly from the linearity of \(T\) and
 		the inner product. Now by the Riesz Representation Theorem there is a \(w_{*} \in V\) such that \(\langle Tv, w \rangle = \varphi(v) = \langle v, w_{*} \rangle\) we may now define \(T^{*}w = w_{*}\). 
 		This now shows that there is map that achieves what we want, the only thing left to prove is that this is actually linear. Note that that if we consider 
 		\[
@@ -184,7 +184,7 @@
 	</p>
 	
 	<p>
-	For the definitions below suppose that \((H, d)\) is a Hilbert space with the metric \(d: H \times H \to \mathbb{R}\) defined in the usual way.
+	For the definitions to follow suppose that \((H, d)\) is a Hilbert space with the metric \(d: H \times H \to \mathbb{R}\) defined in the usual way.
 	</p>
 	
 	<div id="container">
@@ -206,11 +206,27 @@
 	</p>
 	</div>
 	<p>
-	It is fact that this forms a basis for a topology, one can confirm for themselves. However the important fact here is that this topology does two interesting things. 
-    They make the addition and scalar multiplication continous maps. We will now define something new
+	One can confirm for themselves that this is indeed a basis. The main idea is that for every point in \(H\) we can choose \(B(p, \epsilon)\) for any \( \epsilon \) 
+    that is small enough and that is in \( \mathcal{B}\). Now if we take the intersection of two elements, \(B_1, B_2 \in \mathcal{B}\) it is either 
+    empty or not. If it is not then for each \(x\) in the intersection we can again take a small enough \(\epsilon\) such that \(x \in B(x, \epsilon) \subset B_1 \cap B_2\).
+    Note that these alone do not constitute that \(\mathcal{B}\) is a basis, but rather these are the starting points for the arguments.
+    </p>
+
+    <p> 
+    However the important fact here is that this topology does something interesting. It makes the addition and scalar multiplication continous maps. 
+    We will now define something new
+    </p>
     <div id="container">
     <b> Topological Vector Space </b>
-    </div>
-	</p>
+    <p>
+        A topological space \((H, \mathcal{T})\) is called a topological vector space if \(H\) is a vector space and the addition 
+        and multiplication are continous with respect to \(\mathcal{T}\).
+    </p>
+    </div> 
+	<p>
+        One might ask, what it means for a function to be continous 
+        We will now show that if \((H, d)\) is a Hilbert space then it is a topological vector space with the metric topology induced 
+        by \(d\). 
+    </p>
 </body>
 </html>
