@@ -30,7 +30,7 @@
     <div id="container">
     <b>Riesz Representation Theorem</b>
     <p>
-        Suppose \(V\) is a finite dimensional inner product space then, for every linear functional \(\varphi\) there is a unique 
+        Suppose \(V\) is a finite dimensional inner product space then, for every linear functional \(\varphi \in V^*\) there is a unique 
         vector \(u \in V\) such that 
         \[
             \varphi(v) = \langle v, u \rangle
@@ -157,7 +157,7 @@
 	So as we can see, the Riesz Representation theorem is a very powerful tool for us to use. The adjoint is interesting in its own right, it allows us insight into these linear maps that are otherwise difficult to come up with. But
 	nonetheless, this post not about the uses of the adjoint. 
     </p>
-
+<!--
     <h1> Riesz Representation Theorem, But More General</h1>
 
     <p>
@@ -219,14 +219,75 @@
     <div id="container">
     <b> Topological Vector Space </b>
     <p>
-        A topological space \((H, \mathcal{T})\) is called a topological vector space if \(H\) is a vector space and the addition 
-        and multiplication are continous with respect to \(\mathcal{T}\).
+        A topological space \((H, \mathcal{T})\) is called a topological vector space if \(H\) is a vector space and the 
+        operations of vector addition and scalar multiplication are continous with respect to \(\mathcal{T}\).
     </p>
     </div> 
 	<p>
-        One might ask, what it means for a function to be continous 
-        We will now show that if \((H, d)\) is a Hilbert space then it is a topological vector space with the metric topology induced 
-        by \(d\). 
+        One might ask, what it means for a function to be continous on a Hilbert Space. Since Hilbert spaces are also metric spaces, we can simply deal with 
+        continutiy on metric spaces. This gives us the following defintion of continuity.
     </p>
+    <div = id="container">
+        <b> Continuous Functions</b>
+        <p>
+            Suppose \((X, d_{X})\) and \((Y, d_{Y})\) are metric spaces, then \(f: X \to Y\) is said to be continous at a point \(a \in X\) if 
+            \(\forall \epsilon > 0\) there is some \(\delta > 0\) such that whenever \(d_{X}(x, a) < \delta \implies d_{Y}(f(x), f(a)) < \epsilon\).
+        </p>
+    </div>
+    <p>
+        Armed with these defintions we can now show that every Hilbert space is a TVS. 
+    </p>
+    <div = id="container">
+        <b>Theorem</b>
+        <p>
+            Suppose \((H,d_{H})\) is a Hilbert space, then \(H\) is a Topological Vector Space.
+        </p>
+    </div>
+    <div id = "proof">
+        We will first start with showing that vector addition is a continuous map. Note that vector addition 
+        is a map 
+        \[
+            +: H \times H \to H
+        \]
+        It is enough to show that the preimage of open balls is open. Sps we have an open ball \(C = B(p,\epsilon) \subseteq H\)
+        now we need to check if \(A = +^{-1}(C)\) is open. Take \(v \in A\)
+    </div>
+    <p>
+        Given this we now need to define what it means for a linear map between Topological Vector Spaces to be bounded.
+    </p>
+    <div id="container">
+        <b>Bounded Linear Map</b>
+        <p>
+            A linear map \(T:V \to W\) is bounded if and only if there is some \(M > 0\) such that for all \(v \in V\)
+            \[
+                |Tv| \leq M|v|
+            \]
+        </p>
+    </div>
+    <p>
+        We now state and prove a very strong lemma:
+    </p>
+    <div id="container">
+        <b>Lemma IV</b>
+        <p>
+            A linear functional \(\varphi\) on a Hilbert space \((H,d)\) is continous if and only if it is bounded.
+        </p>
+    </div>
+    <div id="proof">
+        We start with the backward direction, if \(\varphi\) is a linear functional that is bounded, then we want to show that \(\varphi\) is continuous.
+        To show that \(\varphi\) is continuous at \(a\), for any \(\epsilon > 0\) we will choose 
+        \(\delta = \frac{\epsilon}{M}\) where \(|\varphi(a)| \leq M|a|\) hence we get that if \(|x - a| = d_{H}(x, a) < \delta\) then 
+        \[
+            \begin{aligned}
+                |\varphi(x) - \varphi(a)| &= |\varphi(x-a)| \\
+                &\leq M|x-a| \\
+                &\leq M\left(\frac{\epsilon}{M}\right) \\
+                &= \epsilon
+            \end{aligned}
+        \]
+        Hence we have shown that \(\varphi\) is continuous. Now we will show the forward direction, if \(\varphi\) 
+        is a linear functional that is continuous, then we want to show that it is bounded. To do this w
+    </div>
+    -->
 </body>
 </html>
