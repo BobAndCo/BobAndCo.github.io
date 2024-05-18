@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+
+<head>
+    
+    <!-- Style -->
+    <link href='style.css' rel='stylesheet'>
+
+    <!-- LaTeX integration -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+  </head>
+
+  <body>
+
+    <h1>Volume Forms Over Manifolds</h1>
+
+    <p>
+
+      Let us lead this post with some motivation. Suppose we were given the two submanifold in \(\R^2\) by \(\bar{B}(0; R)\) with the closed ball of radius 
+      \(R\) centered at the origin. Now we were tasked with finding the area of this manifold. Note that this amounts us to find the integral
+      \[
+
+          v(\bar{B}(0; R)) = \int_{\bar{B}(0; R)}dx \wedge dy
+
+      \]
+      But this integral is easy to compute since we can use polar change of variables to note that 
+      \begin{align}
+        v(\bar{B}(0; R)) &= \int_{\bar{B}(0; R)}dx \wedge dy \\
+        &= \int_{0}^{R}\int_{0}^{2\pi}r\,d\theta dr \\
+        &= \int_{0}^{R}r\,dr\int_{0}^{2\pi}d\theta \\
+        &= \pi R^2
+      \end{align}
+      This is exactly what we expect. But we can do this integral in another way. We note that over \(\R^2\) the area form \(\omega = dx \wedge dy\) is closed
+      since it is a 2-form over \(\R^2\) hence by Poincare's Lemma there is a form \(\eta \in \Omega^1(\R^2)\) such that \(d\eta = \omega\). Let us find this
+      form. We can start by seeing that \(\eta = \eta_x\,dx + \eta_y\,dy\) this now gives us that \(d\eta = \left(\frac{\partial \eta_y}{\partial x} - \frac{\partial \eta_x}{\partial y}\right)\,dx\wedge dy\). 
+      But we can guess something like \(\eta = -\frac{y}{2}\,dx + x\frac{x}{2}\,dy\) this gives us exactly what we want. So note that \(S^1(R) = \partial \bar{B}(0; R)\) so
+      by Stokes' Theorem we have that 
+      \[
+          \int_{S^1(R)}\eta = \int_{\bar{B}(0; R)}\omega
+      \]
+
+    </p>
+
+  </body>
+
+<html>

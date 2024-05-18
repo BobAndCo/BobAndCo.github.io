@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+
+<head>
+    
+    <!-- Style -->
+    <link href='style.css' rel='stylesheet'>
+
+    <!-- LaTeX integration -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+  </head>
+
+  <body>
+
+    <h1>Hodge Star Operator</h1>
+
+    <p>
+        This is still a work in progress - May 18, 2024
+
+    </p>
+
+    <p>
+
+      Let us have some fun with the vector space \(\Lambda^k(V)\) where \(V\) is an \(n\)-dimensional vector space. 
+      We note that if we denote 
+      \[
+          \phi_I = \phi_{i_1} \wedge \cdots \wedge \phi_{i_k}
+      \] 
+      where \(I = (i_1, \dots, i_k)\) and \(\phi_i\) are a basis for \(V^*\)
+      then we note that the following collection of vectors
+      \(\{\phi_I \mid \text{where } I = (i_1, \dots, i_k) \text{ and } 1 \leq i_1 < i_2 < \cdots < i_k \leq n\}\)
+      is a basis for \(\Lambda^k(V)\). Now let us show that for every \(I\) there is an element \(\omega \in \Lambda^{n-k}(V)\) 
+      such that 
+      \[
+        \phi_I \wedge \omega = \phi_1 \wedge \cdots \wedge \phi_n
+      \]
+      Let us denote with \(\star\phi_I = \omega\) then the equation above is the same as 
+      \[
+          \phi_I \wedge (\star\phi_I) = \phi_1 \wedge \cdots \wedge \phi_n
+      \]
+      Let us first start with the case where \(I\) is a singleton then note that we want to find \(\star\phi_i \in \Lambda^{n-1}(V)\) 
+      such that
+      \[
+          \phi_i \wedge (\star\phi_i) = \phi_1 \wedge \cdots \wedge \phi_i \wedge \cdots \phi_i = (-1)^{i-1}\phi_i \wedge \phi_1 \wedge \cdots \wedge \widehat{\phi}_i \wedge \cdots \wedge \phi_n
+      \]
+      this gives us that 
+      \[
+          \star\phi_i = (-1)^{i-1} \phi_1 \wedge \cdots \wedge \widehat{\phi}_i \wedge \cdots \wedge \phi_n
+      \]
+      Now note that \(\star\phi_i\) and \(\star\phi_j\) are basis vectors for \(\Lambda^{1}(V)\) moreover note that 
+      if \(i \neq j\) then these are different basis vectors. Now taking \(\omega \in \Lambda^1(V)\) we can write 
+      \(\omega = \sum_{i}\omega_i\phi_i\) hence we can define the map \(\star:\Lambda^1(V) \to \Lambda^{n-1}(V)\) by 
+      \[
+          \star\omega = \sum_{i}(-1)^{i-1}\omega_i\,\phi_1 \wedge \cdots \wedge \widehat{\phi}_i \wedge \cdots \wedge \phi_n
+      \]
+      Since \(\star\) is a map between finite dimensional vector spaces and each basis vector is mapped onto linearly 
+      independent vectors that span the codomain space, this map is an isomorphism. 
+    </p>
+
+    <div id="container">
+      <b>Example I</b>
+          <p>
+          Let us take the space \(\Lambda^1(\R^3)\), now the elementary \(1\)-tensors are \(e_1^*, e_2^*, e_3^*\) 
+          so using the map above we get 
+          \[
+              \star e_1^* = (-1)^{1-1}e_2^* \wedge e_3^* = e_2^* \wedge e_3^*
+          \]
+          but it is obvious that 
+          \[
+              e_1^* \wedge (\star e_1^*) = e_1^* \wedge e_2^* \wedge e_3^*
+          \]
+          Similarly we have that 
+          \[
+              \star e_2^* = (-1)^{2-1}e_1^* \wedge e_3^* = -e_1^* \wedge e_3^*
+          \]
+          but we can check that 
+          \[
+              e_2^* \wedge (\star e_2^*) = -e_1^* \wedge e_1^* \wedge e_3^* = e_1^* \wedge e_2^* \wedge e_3^*
+          \]
+          and finally we have that 
+          \[
+              \star e_3^* = (-1)^{3-1}e_1^* \wedge e_2^* = e_1^* \wedge e_2^*
+          \]
+          but it is obvious that 
+          \[
+              e_3^* \wedge (\star e_3^*) = e_3^* \wedge e_1^* \wedge e_2^* = e_1^* \wedge e_2^* \wedge e_3^*
+          \]
+          </p>
+      </div>
+
+      <p>
+
+          But we dont have to restric ourselves to trivial examples. Once we have these we can find the star product of other 
+          \(1\)-forms. So let us look at the following example
+          
+      </p>
+          
+      <div id="container">
+        <b>Example II</b>
+            <p>
+                Suppose we have \(\omega \in \Lambda^1(\R^3)\) given by \(\omega = 3 e_1^*\) then we get that 
+                \[
+                    \star\omega = 3e_2^* \wedge e_3^*
+                \]
+                from the computation done above. Moreover we note that 
+                \[
+                    \omega \wedge \star\omega = 9e_1^* \wedge e_2^* \wedge e_3^*
+                \]
+                which happens to be \(\langle \omega, \omega\rangle\) is we identify 
+                \[
+                    ae_1^* + be_2^* + ce_3^* \mapsto 
+                    \begin{pmatrix}
+                        a \\
+                        b \\
+                        c
+                    \end{pmatrix}
+                \]
+            </p>
+        </div>
+
+      </p>
+          
+          Building off of the last example let us look at the following example
+
+      </p>
+
+      <div id="container">
+        <b>Example III</b>
+            <p>
+                If we are given \(\omega, \eta \in \Lambda^1(V)\) then note that \(\omega = \sum_{i}\omega_i \phi_i\) and 
+                \(\eta = \sum_i \eta_i \phi_i\) then note that 
+                \[
+                    \star\eta = \sum_{i}(-1)^{i-1}\eta_i\,\phi_1 \wedge \cdots \wedge \widehat{\phi}_i \wedge \cdots \wedge \phi_n
+                \]
+                So note that 
+                \[
+                  \begin{aligned}
+                      \omega \wedge (\star\eta) &= \sum_{i}(-1)^{i-1}\omega_i\eta_i\,\phi_i \wedge \phi_1 \wedge \cdots \wedge \widehat{\phi}_i \wedge \cdots \wedge \phi_n\\
+                                                &= \sum_{i}\omega_i\eta_i\,\phi_1 \wedge \cdots \wedge \cdots \wedge \phi_n \\
+                                                &= \langle \omega, \eta \rangle \phi_1 \wedge \cdots \wedge \cdots \wedge \phi_n 
+                  \end{aligned}
+                \]
+                Given the same identification as in the example above. 
+            </p>
+        </div>
+
+      <p>
+          
+          But let us now investigate what happens when we compose the star operator with itself. Note that 
+          
+          \[
+            \begin{CD}
+              \Omega^1(M) @>\star>> \Omega^{n-1}(M) @>\star>> \Omega^1(M)\\
+            \end{CD}
+          \]
+      </p>
+
+  </body>
+
+<html>
