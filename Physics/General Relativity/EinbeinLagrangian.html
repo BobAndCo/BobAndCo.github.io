@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+
+<head>
+    
+    <!-- Style -->
+    <link href='../../style.css' rel='stylesheet'>
+
+    <!-- LaTeX integration -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+
+
+    <!-- Define some KaTeX commands -->
+     \(
+         \gdef\L{\mathcal{L}}
+         \gdef\dd{\mathrm{d}}
+         \gdef\dv#1#2{\frac{\dd #1}{\dd #2}}
+         \gdef\pdv#1#2{\frac{\partial #1}{\partial #2}}
+     \)
+  </head>
+
+  <body>
+
+    <h1>A Journey Through Relativistic Lagrangians</h1>
+
+    <p>
+
+        Before we even start, I will mentioned that I will use the Einstein Summation Convention the entire duration of the article.
+        We start by noting that a lot of classical mechanics is done through the principle of least action. Which says that there is a 
+        functional of the positions and the velocities such that the motion undergone is an extremum of the functional. The common notation is 
+        to say that the action is \(S\) and we note that  
+        \[
+            S = \int \mathcal{L}(x^\mu, \dot{x}^\mu, t)\,\mathrm{d}t
+        \]
+
+        Now from variational calculus we see that the extremum of \(S\) is obtained when the positions and velocities satisfy the Euler-Lagrange
+        equations, that is 
+        \[
+            \frac{\dd}{\dd t}\pdv{\L}{\dot{x}^\mu} = \pdv{\L}{x^\mu}
+        \]
+
+        In nonrelativistic mechanics we find that \(\mathcal{L} = K - U\) (up to the addition of a total time derivative). The Lagrangian for 
+        a free particle in nonrelativistic dynamics is just the kinetic energy. So 
+        \[
+            \L = \frac{1}{2}m\dot{x}^\mu\dot{x}_\mu
+        \]
+
+        We can introduce different metric tensors and get different Lagrangians because \(\dot{x}_\mu = g_{\mu\nu}\dot{x}^\nu\), hence the 
+        Lagrangian is 
+        \[
+            \L = \frac{1}{2}mg_{\mu\nu}\dot{x}^\mu\dot{x}^\nu
+        \]
+        After playing around with the Euler-Lagrange equations we get that the equations of motion are 
+        \[
+            \ddot{x}^\mu + \Gamma^{\mu}_{\,\,\nu\rho}\dot{x}^{\nu}\dot{x}^{\rho} = 0
+        \]
+        Here the \(\Gamma^{\mu}_{\,\,\nu\rho}\) are called the Christoffel symbols and the symbols are given by 
+        \[
+            \Gamma^{\mu}_{\,\,\nu\rho} = \frac{1}{2}g^{\mu\sigma}\left(\pdv{g_{\sigma\nu}}{x^\rho} + \pdv{g_{\sigma\rho}}{x^{\nu}} - \pdv{g_{\nu\rho}}{x^\sigma}\right)
+        \]
+
+    </p>
+        
+    <a href="../../index.html">Go back Home</a>
+
+  </body>
+
+</html>

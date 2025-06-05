@@ -4,7 +4,7 @@
 <head>
     
     <!-- Style -->
-    <link href='style.css' rel='stylesheet'>
+    <link href='../../style.css' rel='stylesheet'>
 
     <!-- LaTeX integration -->
 
@@ -23,41 +23,55 @@
     <h1>Hodge Star Operator</h1>
 
     <p>
-        This is still a work in progress - May 18, 2024
+        This is still a work in progress - April 8, 2025
 
     </p>
 
     <p>
 
-      Let us have some fun with the vector space \(\Lambda^k(V)\) where \(V\) is an \(n\)-dimensional vector space. 
-      We note that if we denote 
+      Let us have some fun with the vector space \(\Lambda^k(V^*)\) where \(V\) is an \(n\)-dimensional real vector space. 
+      This space denotes the set of alternating \(k\) forms on \(V\). We note that if we denote by
       \[
           \phi_I = \phi_{i_1} \wedge \cdots \wedge \phi_{i_k}
       \] 
       where \(I = (i_1, \dots, i_k)\) and \(\phi_i\) are a basis for \(V^*\)
-      then we note that the following collection of vectors
-      \(\{\phi_I \mid \text{where } I = (i_1, \dots, i_k) \text{ and } 1 \leq i_1 < i_2 < \cdots < i_k \leq n\}\)
-      is a basis for \(\Lambda^k(V)\). Now let us show that for every \(I\) there is an element \(\omega \in \Lambda^{n-k}(V)\) 
+      then the the following collection of vectors
+      \(\{\phi_I \mid I = (i_1, \dots, i_k) \text{ and } 1 \leq i_1 < i_2 < \cdots < i_k \leq n\}\)
+      is a basis for \(\Lambda^k(V^*)\). This basis now shows us that \(\dim \Lambda^k(V^*) = {n \choose k}\). 
+      Since \({n \choose n-k} = {n \choose k}\) we get that \(\Lambda^{k}(V^*)\) and \(\Lambda^{n-k}(V^*)\) are
+      isomorphic vector space. But is there a useful isomorphism between these spaces? If we add additional structure
+      like in the case of <a href="../Linear Algebra/rieszRepresentation.html">Riesz Representation</a> is there a 
+      canonical isomorphism? This is what we explore now. So let us show that for every \(I_k\), where is an ordered 
+      subset of \(\{1, \dots, n\}\) that is stictly increasing, there is a unique form \(\omega \in \Lambda^{n-k}(V^*)\) 
       such that 
       \[
         \phi_I \wedge \omega = \phi_1 \wedge \cdots \wedge \phi_n
       \]
-      Let us denote with \(\star\phi_I = \omega\) then the equation above is the same as 
+      Let us denote by \(\star\phi_I = \omega\), if such a form does exist, then the equation above is the same as 
       \[
           \phi_I \wedge (\star\phi_I) = \phi_1 \wedge \cdots \wedge \phi_n
       \]
       Let us first start with the case where \(I\) is a singleton then note that we want to find \(\star\phi_i \in \Lambda^{n-1}(V)\) 
       such that
       \[
-          \phi_i \wedge (\star\phi_i) = \phi_1 \wedge \cdots \wedge \phi_i \wedge \cdots \phi_i = (-1)^{i-1}\phi_i \wedge \phi_1 \wedge \cdots \wedge \widehat{\phi}_i \wedge \cdots \wedge \phi_n
+          \phi_i \wedge (\star\phi_i) = \phi_1 \wedge \cdots \wedge \phi_i \wedge \cdots \wedge \phi_i = (-1)^{i-1}\phi_i \wedge \phi_1 \wedge \cdots \wedge \widehat{\phi}_i \wedge \cdots \wedge \phi_n
       \]
       this gives us that 
       \[
           \star\phi_i = (-1)^{i-1} \phi_1 \wedge \cdots \wedge \widehat{\phi}_i \wedge \cdots \wedge \phi_n
       \]
-      Now note that \(\star\phi_i\) and \(\star\phi_j\) are basis vectors for \(\Lambda^{1}(V)\) moreover note that 
-      if \(i \neq j\) then these are different basis vectors. Now taking \(\omega \in \Lambda^1(V)\) we can write 
-      \(\omega = \sum_{i}\omega_i\phi_i\) hence we can define the map \(\star:\Lambda^1(V) \to \Lambda^{n-1}(V)\) by 
+      Let us now show that this the unique form that accomplishes this. An arbitrary \(\omega \in \Lambda^{n-1}(V)\) can be written as 
+      \[
+          \omega = \sum_{j=1}^{n}\omega_j\,\phi_1\wedge\cdots\wedge\widehat{\phi}_j\wedge\cdots\wedge\phi_n
+      \]
+      We also required that \(\phi_i \wedge \omega = \phi_1 \wedge \cdots \wedge \phi_n\). Now note that for 
+      \(k \neq i\) we have that xxxxxxxxxx
+      
+      But note that this just fixes the \(i^\text{th}\)
+      component of \(\omega\). So this is not unique. We will deal with this issue later. Now note that \(\star\phi_i\) and \(\star\phi_j\) 
+      are basis vectors for \(\Lambda^{1}(V)\) moreover note that if \(i \neq j\) then these are different basis vectors. 
+      Now taking \(\omega \in \Lambda^1(V)\) we can write \(\omega = \sum_{i}\omega_i\phi_i\) hence we can define the map 
+      \(\star:\Lambda^1(V) \to \Lambda^{n-1}(V)\) by 
       \[
           \star\omega = \sum_{i}(-1)^{i-1}\omega_i\,\phi_1 \wedge \cdots \wedge \widehat{\phi}_i \wedge \cdots \wedge \phi_n
       \]
@@ -83,7 +97,7 @@
           \]
           but we can check that 
           \[
-              e_2^* \wedge (\star e_2^*) = -e_1^* \wedge e_1^* \wedge e_3^* = e_1^* \wedge e_2^* \wedge e_3^*
+              e_2^* \wedge (\star e_2^*) = -e_2^* \wedge e_1^* \wedge e_3^* = e_1^* \wedge e_2^* \wedge e_3^*
           \]
           and finally we have that 
           \[
@@ -98,7 +112,7 @@
 
       <p>
 
-          But we dont have to restric ourselves to trivial examples. Once we have these we can find the star product of other 
+          But we dont have to restrict ourselves to trivial examples. Once we have these we can find the hodge star of other 
           \(1\)-forms. So let us look at the following example
           
       </p>
@@ -114,7 +128,7 @@
                 \[
                     \omega \wedge \star\omega = 9e_1^* \wedge e_2^* \wedge e_3^*
                 \]
-                which happens to be \(\langle \omega, \omega\rangle\) is we identify 
+                which happens to be \(\langle \omega, \omega\rangle\) if we identify 
                 \[
                     ae_1^* + be_2^* + ce_3^* \mapsto 
                     \begin{pmatrix}
@@ -161,8 +175,11 @@
               \Omega^1(M) @>\star>> \Omega^{n-1}(M) @>\star>> \Omega^1(M)\\
             \end{CD}
           \]
+          Goob
       </p>
+
+      <a href="../../index.html">Go back Home</a>
 
   </body>
 
-<html>
+<html> 
