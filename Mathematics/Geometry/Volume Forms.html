@@ -20,15 +20,15 @@
 
   <body>
 
-    <h1>Volume Forms Over Manifolds</h1>
+    <h1>Volume Forms Over Manifolds(and submanfolds)</h1>
 
     <p>
-
-      Let us lead this post with some motivation. Suppose we were given the two submanifold in \(\R^2\) by \(\bar{B}(0; R)\) with the closed ball of radius 
-      \(R\) centered at the origin. Now we were tasked with finding the area of this manifold. Note that this amounts us to find the integral
+      Let us lead this post with some motivation. Suppose we were given the two dimensional submanifold in \(\R^2\) by \(\bar{B}(0; R)\) 
+      with the closed ball of radius \(R\) centered at the origin. Now we were tasked with finding the area of this manifold. 
+      Note that this amounts us to find the integral
       \[
 
-          v(\bar{B}(0; R)) = \int_{\bar{B}(0; R)}dx \wedge dy
+          v(\bar{B}(0; R)) = \int_{\bar{B}(0; R)}\mathrm{d}x \wedge dy
 
       \]
       But this integral is easy to compute since we can use polar change of variables to note that 
@@ -38,7 +38,56 @@
         &= \int_{0}^{R}r\,dr\int_{0}^{2\pi}d\theta \\
         &= \pi R^2
       \end{align}
-      This is exactly what we expect. But we can do this integral in another way. We note that over \(\R^2\) the area form \(\omega = dx \wedge dy\) is closed
+      This is exactly what we expect. So is there a way to assign such a volume to every manifold? And the answer is that it is not that simple.
+      With open submanifolds \(M\) of \(\R^n\) we can do the same procedure as above where we take the canonical volume form which we will call
+      \(\omega = \mathrm{d}x^1 \wedge \cdots \wedge \mathrm{d}x^n\) and the inclusion map \(i: M \to \R^n\) and note that 
+      \(i^*\omega \in \Omega^n(M)\). But the inclusion is just identity restricted to the submanifold and so the integal we perform is just over the
+      region, just as above.
+    </p>
+
+    <p>
+      We should make clear what is a volume form on a manifold. After this we will answer the question of if every manifold admits one. After that
+      we will discuss some canonical choices of volumes forms. Finally we will discuss some of the use cases of volume forms in the context of 
+      (psuedo)Riemannian manifolds
+    </p>
+
+    <p>
+      To make it clear, a volume form on a manifold \(M\) of dimension \(m\) is a top form \(\omega \in \Omega^m(M)\) such that for all \(p \in M\)
+      we have that \(\omega_p \not\equiv 0\). In other words, at each \(p \in M\) there are vectors \(v_{p1}, \dots, v_{pm} \in T_pM\) such that 
+      \[
+        \omega_p(v_{1p}, \dots, v_{mp}) = 1
+      \]
+      We may choose this to be one by rescaling the tangent vectors appropriately. This requirement seems trivial but as we will see below such 
+      differential forms dont always exist. 
+    </p>
+
+    <p>
+      Since for each \(p \in M\) we have that \(\dim\bigwedge^mT_pM = 1\) we can take any nonzero tensor \(\omega_p\) and see that 
+      \(\text{span}\{\omega_p\} = \bigwedge^mT_pM\). Locally, i.e. on a chart (\(U, \varphi\)), we can pullback the volume form on \(\R^m\) back 
+      to a volume form on \(U\). We can check this by noting that the canonical volume form on \(\R^m\) is the determinant function on each tangent
+      space and in local coordinates we have that 
+      \[
+        \varphi^*(\mathrm{d}x^1 \wedge \cdots \wedge \mathrm{d}x^m) = \mathrm{d}\varphi^1 \wedge \cdots \wedge \mathrm{d}\varphi^m
+      \]
+      but we know that 
+      \[
+        \mathrm{d}\varphi^i = \frac{\partial\varphi^i}{\partial y^j}\mathrm{d}x^j
+      \]
+      using summation convention, hence 
+      \[
+        \mathrm{d}\varphi^1 \wedge \cdots \wedge \mathrm{d}\varphi^m = \det D\varphi\, \mathrm{d}y^1 \wedge \cdots \wedge \mathrm{d}y^m
+      \]
+      and since the determinant is nonzero, given that \(\varphi\) is a diffeomorphism, we have that this is a volume form on \(U\). This shows
+      that if \(M\) can be coveredd by one chart then there must be a volume form. Moreover this gives rise to a natural orientation on \(M\)
+      since we may pullback the standand frame on \(\R^m\) to get an orientation. Let us explore this further.
+    </p>
+
+    <p>
+      Suppose (\(M, \omega\)) is a smooth manifold with \(\omega\) a volume form on \(M\). Is it true that \(M\) must be orientable?
+    </p>
+
+    <p>    
+      But we can do this integral in another way. We note that over \(\R^2\) the area form \(\omega = dx \wedge dy\) is closed
       since it is a 2-form over \(\R^2\) hence by Poincare's Lemma there is a form \(\eta \in \Omega^1(\R^2)\) such that \(d\eta = \omega\). Let us find this
       form. We can start by seeing that \(\eta = \eta_x\,dx + \eta_y\,dy\) this now gives us that \(d\eta = \left(\frac{\partial \eta_y}{\partial x} - \frac{\partial \eta_x}{\partial y}\right)\,dx\wedge dy\). 
       But we can guess something like \(\eta = -\frac{y}{2}\,dx + x\frac{x}{2}\,dy\) this gives us exactly what we want. So note that \(S^1(R) = \partial \bar{B}(0; R)\) so
@@ -46,7 +95,6 @@
       \[
           \int_{S^1(R)}\eta = \int_{\bar{B}(0; R)}\omega
       \]
-
     </p>
 
     <a href="../../index.html">Go back Home</a>
