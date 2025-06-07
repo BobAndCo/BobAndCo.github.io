@@ -75,7 +75,7 @@
       \]
       using summation convention, hence 
       \[
-        \mathrm{d}\varphi^1 \wedge \cdots \wedge \mathrm{d}\varphi^m = \det D\varphi\, \mathrm{d}y^1 \wedge \cdots \wedge \mathrm{d}y^m
+        \mathrm{d}\varphi^1 \wedge \cdots \wedge \mathrm{d}\varphi^m = (\det D\varphi)\, \mathrm{d}y^1 \wedge \cdots \wedge \mathrm{d}y^m
       \]
       and since the determinant is nonzero, given that \(\varphi\) is a diffeomorphism, we have that this is a volume form on \(U\). This shows
       that if \(M\) can be coveredd by one chart then there must be a volume form. Moreover this gives rise to a natural orientation on \(M\)
@@ -84,7 +84,68 @@
 
     <p>
       Suppose (\(M, \omega\)) is a smooth manifold with \(\omega\) a volume form on \(M\). Is it true that \(M\) must be orientable?
+      Let us try to figure this out. Note first that at each point \(p \in M\) we have that \(\omega_p\) defines an orientation. To see 
+      this note that if we take two ordered basis \(v_1, \dots, v_m\) and \(w_1, \dots, w_m\) of \(T_pM\) and let the change of basis 
+      matrix be \(A\) such that \(Av_i = w_i\) then note that 
+      \(\omega_p(w_1, \dots, w_m) = \omega_p(Av_1, \dots, Av_m) = \det(A)\omega_p(v_1, \dots, v_m)\). So now if \(\det(A) > 0\) then these
+      bases are in the same orientation and if \(\det(A) < 0\) they are in the opposite. This means that the top form gives rise to a partition
+      of the set of ordered bases in two, which we may take to be the orientation. So, at each point \(\omega\) forces a pointwise orientation
+      of \(M\). Now to show that \(\omega\) defines an orientation on \(M\) we start by taking an open connected set \(U \subseteq M\) and a
+      local frame \(\{X_i\}\) moreover, take the dual coframe \(\{X^i\}\). Now in this setting we have that 
+      \(\omega = f\,X^1 \wedge \cdots \wedge X^m\) this now means that \(\omega(X_1, \dots, X_m) = f\). Since \(\omega_p \neq 0\) for any 
+      \(p \in U\) we cannot have \(f(p) = 0\), hence on \(U\) f is either always positive or always negative (since \(U\) is connected). 
+      Hence we have a pointwise orientation, moreover the fact that locally this is always the same sign gives us the continuity of 
+      the pointwise orientation. This is all we needed, since these collections of local frame (up to changing sign for positive orientation) 
+      make up the defintion of an orienation on \(M\). 
     </p>
+
+    <p>
+      The exposition above shows that orientation and the existance of volume forms are one in the same thing. But can we make this stronger?
+      By this I mean, suppose \(M\) is a oriented smooth manifold, does there exist a volume form \(\omega\)? We can deconstruct the argument
+      above to define a collection of local forms. Then using a patition of unity note that the form may be defined globally. We must now 
+      show that this form is smooth. But this follows quickly as on each local frame we have defined a smooth form and the smooth combination
+      of smooth forms is smooth. Hence we have a nowhere vanishing top form. 
+    </p>
+
+    <p>
+      With all this out of the way, let me introduce my favorite case of existance. Suppose \(f: M \to \R\) is a smooth function
+      with \(c \in \R\) a regular value. Then \(S = f^{-1}(c)\) is a regular submanifold of \(M\) of dimension \(\dim M - 1\). 
+      We now see that this submanifold is always orientable if \(M\) is. 
+    </p>
+
+    <p>
+      Since Riemannian metrics always exist, we can choose one, and then define the gradient of the function \(f\). Now we will show that 
+      \(\text{grad}(f)\) is nowhere tangent to \(S\). From the defintion of the gradient we have that the gradient is the unique vector 
+      field such that 
+      \[
+        \langle\text{grad}(f), X\rangle = \mathrm{d}f(X) = Xf
+      \]
+      So now to show that \(\text{grad}(f)\) is nowhere tangent to \(S\), let \(\{X_i\}\) be a local orthonormal frame on \(S\) and 
+      since we are looking at \(S\) as a submanifold we idenity the tangent spaces appropriately. Let \(\{Y_i\}\) be a local orthonormal frame 
+      on \(M\) such that on \(S\) the first \(m-1\, Y_i\) are the \(X_i\) then in this case we have that 
+      \[
+        \text{grad}(f) = a^iY_i
+      \]
+      using the inner product characterization, on \(S\) we have that 
+      \[
+        a^i =  \langle\text{grad}(f), X_i\rangle = \mathrm{d}f(X_i) = 0 
+      \]
+      for \(i = 1, \dots, m-1\). Hence \(\text{grad}(f) \notin T_pS\) for all \(p \in S\). Now this vector field exists, moreover the existance
+      of such a nowhere vanishing vector field is dependent only on the choice of Riemannian metric and Riemannian metrics always exist on
+      any smooth manifolds. Hence we may take that such a vector field always exists. Let \(X\) be a vector field on \(M\) that is nowhere
+      tangent to \(S\) then on \(S\) we have that \(\iota_X\omega\) is nowhere vanishing since at every point we can always take a basis of 
+      \(T_pS\) such that the collection including \(X\) gives a basis for \(T_pM\). So the form \(i^*\iota_X\omega \in \Omega^{m-1}(S)\) is a 
+      nowhere vanishing top form and hence is a volume form. From our above exposition this implies that \(S\) must be orientable.
+    </p>
+
+    <p>
+      From this we see that the existance of a nowhere vanishing vector filed is enough to find an orientation on any \(m-1\) dimensional
+      submanifold of \(M\). For \(0 < n \leq m\) it is sufficient to find \(m-n\) nowhere tangent and everywhere linearly independent to 
+      submanifold to find an orientation. These vector fields may merely be local frames as well. 
+    </p>
+    <!--
+
+    I have no idea what this is trying to get at, maybe I will understand in the future?
 
     <p>    
       But we can do this integral in another way. We note that over \(\R^2\) the area form \(\omega = dx \wedge dy\) is closed
@@ -96,6 +157,8 @@
           \int_{S^1(R)}\eta = \int_{\bar{B}(0; R)}\omega
       \]
     </p>
+
+    -->
 
     <a href="../../index.html">Go back Home</a>
 
