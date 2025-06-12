@@ -18,7 +18,7 @@
         onload="renderMathInElement(document.body);"></script>
   </head>
 
-  <body>
+  <body> 
 
     <h1>Volume Forms Over Manifolds(and submanfolds)</h1>
 
@@ -143,6 +143,71 @@
       submanifold of \(M\). For \(0 < n \leq m\) it is sufficient to find \(m-n\) nowhere tangent and everywhere linearly independent to 
       submanifold to find an orientation. These vector fields may merely be local frames as well. 
     </p>
+
+    <h2>Canonical Volume forms</h2>
+    <p>
+      There are two main structures that are used in the study of differential geometry, those are: Riemannian metrics, symplectic forms and Lie groups. 
+      Arguably the easiest one to discuss is the Lie group. 
+    </p>
+      
+    <h3>Lie Groups</h3>
+
+    <p>
+      So let \(G\) be a Lie group of dimension \(n\). Now let \(\omega_e \in \bigwedge^nT_eM\) be nonzero. Moreover 
+      note that \(\ell_g: G \to G\) defined by \(h \to gh\) is a diffeomorphism. Now at each point \(g \in G\) define \(\omega_g = \ell_{g^{-1}}^*\omega_e\). To see that this
+      is a volume form, take a basis \(T_eG\), lets call it \(v_{1e}, \dots, v_{ne}\). Then \(\omega_e(v_{1e}, \dots, v_{ne}) \neq 0\), we choose a basis since this the \(\omega_e\)
+      evaluates to something nonzero if and only if the collection is a basis. So now note that \(\mathrm{d}\ell_{g^{-1}}:T_gG \to T_eG\) is an isomorphism, so there are 
+      unique tangent vectors \(v_{1g}, \dots, v_{ng} \in T_gG\) such that \((\mathrm{d}\ell_{g^{-1}})_g(v_{ig}) = v_{ie}\). Note now that 
+      \begin{align}
+        \omega_g(v_{1g}, \dots, v_{ng}) &= (\ell_{g^{-1}}^*\omega_e)_g(v_{1g}, \dots, v_{ng}) \\
+                                        &= \omega_e(\mathrm{d}\ell_{g^{-1}}(v_{1g}), \dots, \mathrm{d}\ell_{g^{-1}}(v_{ng})) \\
+                                        &= \omega_e(v_{1e}, \dots, v_{ne}) \\
+                                        &\neq 0
+      \end{align}
+      This shows that the \(\omega_g\) is nonzero. So \(\omega\) is a rough nonzero top form on \(G\). Now we must show that this form is actually smooth. To do this, let us
+      make use of a global frame on \(G\). Let us choose a left invariant global frame \(\{X_i\}\), then we note that if \(\omega_e(X_1|_e, \dots, X_n|_e) = c \in \R\) then
+      \begin{align}
+        \omega_g(X_1|_g, \dots, X_n|_g) &= (\ell_{g^{-1}}^*\omega_e)_g(X_1|_g, \dots, X_n|_g) \\
+                                        &= \omega_e(\mathrm{d}\ell_{g^{-1}}(X_1|_g), \dots, \mathrm{d}\ell_{g^{-1}}(X_n|_g)) \\
+                                        &= \omega_e(X_1|_e, \dots, X_n|_e) \\
+                                        &= c
+      \end{align}
+      where we need the left invariance to compute \(\mathrm{d}\ell_{g^{-1}}(X_i|_g)\). Since we have a global frame, every vector field \(X \in \mathfrak{X}(M)\) may be written
+      as \(X = x^iX_i\) for some smooth functions \(x^i\). Finally let us take any collection of vector field \(\{Y_i\}_{i = 1}^{n}\) and let us consider the function 
+      \[
+        p \mapsto \omega_p(Y_1|_p, \dots, Y_n|_p)
+      \]
+      the form is smooth if and only if this function is smooth. But note that 
+      \begin{align}
+        \omega_p(Y_1|_p, \dots, Y_n|_p) &= \omega_p(y_1^i(p)X_i|_p, \dots, y_n^i(p)X_i|_p) \\
+                                        &= y_1^{i_1}(p)\cdots y_n^{i_n}(p)\omega_p(X_{i_1}|_p, \dots, X_{i_n}|_p)
+      \end{align}
+      but this is a product and sum of smooth functions, hence this form is smooth. From this we have seen a very important result, that every Lie group is orientable. 
+    </p>
+      
+    <h3>Symplectic Manifolds</h3>
+
+    <p>
+      So let \((M ,\omega)\) be a symplectic manifold of dimension \(2m\). Now 
+      this means that at each point \(p \in M\) we have \(\omega_p\) is nondegenerate. If we take a symplectic basis 
+      \(v_{1p}, \dots, v_{mp}, w_{1p}, \dots, w_{mp}\) of \(T_pM\) then 
+      \[
+        \omega_p = v_{1p} \wedge w_{1p} + \cdots + v_{mp} \wedge w_{mp}
+      \]
+      So if we take the \(m\) fold wedge product \(\omega^m = \omega_p \wedge \cdots \wedge \omega_p\) we get 
+      \[
+        \omega_p = \pm m!v_{1p} \wedge w_{1p} \wedge \cdots v_{mp} \wedge w_{mp}
+      \]
+      where the sign is dependent on whether \(m\) is even or odd. Now
+      \[
+        \omega_p(v_{1p}, w_{1p}, \dots, v_{mp}, w_{mp}) \neq 0 
+      \]
+      hence this is a nondegenerate form. Since this holds for all the points in the manifold we note that \(\omega^m\) is a volume form for \(M\). So we have a canonical choice
+      of colume form called the Liouville volume form given by \(\frac{\omega^m}{m!}\). Here we have the \(m!\) for normalization reasons. This is very important because This
+      gives us that Symplectic manifolds must be orientable. In particular, it gives a sort of nontrivial proof of the fact that for any manifold \(X\) the cotangent bundle
+      \(T^*X\) must be orientable, since it has a canonical symplectic form defined on it. 
+    </p>
+
     <!--
 
     I have no idea what this is trying to get at, maybe I will understand in the future?
