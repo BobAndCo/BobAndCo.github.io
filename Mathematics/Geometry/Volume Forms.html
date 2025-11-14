@@ -32,12 +32,14 @@
 
       \]
       But this integral is easy to compute since we can use polar change of variables to note that 
-      \begin{align}
+      \[
+      \begin{align*}
         v(\bar{B}(0; R)) &= \int_{\bar{B}(0; R)}dx \wedge dy \\
         &= \int_{0}^{R}\int_{0}^{2\pi}r\,d\theta dr \\
         &= \int_{0}^{R}r\,dr\int_{0}^{2\pi}d\theta \\
         &= \pi R^2
-      \end{align}
+      \end{align*}
+      \]
       This is exactly what we expect. So is there a way to assign such a volume to every manifold? And the answer is that it is not that simple.
       With open submanifolds \(M\) of \(\R^n\) we can do the same procedure as above where we take the canonical volume form which we will call
       \(\omega = \mathrm{d}x^1 \wedge \cdots \wedge \mathrm{d}x^n\) and the inclusion map \(i: M \to \R^n\) and note that 
@@ -62,8 +64,8 @@
     </p>
 
     <p>
-      Since for each \(p \in M\) we have that \(\dim\bigwedge^mT_pM = 1\) we can take any nonzero tensor \(\omega_p\) and see that 
-      \(\text{span}\{\omega_p\} = \bigwedge^mT_pM\). Locally, i.e. on a chart (\(U, \varphi\)), we can pullback the volume form on \(\R^m\) back 
+      Since for each \(p \in M\) we have that \(\dim\bigwedge^mT_p^*M = 1\) we can take any nonzero tensor \(\omega_p\) and see that 
+      \(\text{span}\{\omega_p\} = \bigwedge^mT_p^*M\). Locally, i.e. on a chart (\(U, \varphi\)), we can pullback the volume form on \(\R^m\) back 
       to a volume form on \(U\). We can check this by noting that the canonical volume form on \(\R^m\) is the determinant function on each tangent
       space and in local coordinates we have that 
       \[
@@ -80,6 +82,39 @@
       and since the determinant is nonzero, given that \(\varphi\) is a diffeomorphism, we have that this is a volume form on \(U\). This shows
       that if \(M\) can be covered by one chart then there must be a volume form. Moreover this gives rise to a natural orientation on \(M\)
       since we may pullback the standand frame on \(\R^m\) to get an orientation. Let us explore this further.
+    </p>
+
+    <h3>Orientability and Volume Forms</h3>
+
+    <p>
+      First, what is meant by orientatibilty? We know from \(\R^3\) that the cross product gives us an orientation. In general
+      we do not have such a structure. So given a vector space \(V\) with two ordered basis \(\{e_i\}\) and \(\{f_i\}\) we say 
+      that both are in the same orientation if the map sending \(e_i \mapsto f_i\) has a positive determinant. Now we note that
+      this partitions the space of ordered bases of \(V\) into two parts. We may choose an orientation by choosing a basis on \(V\)
+      and we will usually call is positively oriented.
+    </p>
+
+    <p>
+      On manifolds orientations are defined in a multitude of different ways. The way we will define it is by forcing the transition
+      maps to be orientation preserving. What this means is that the determiant of the jacobian must be positive. If we are 
+      able to find an atlas for the manifold such that the transition maps are orientation preserving then we say that the
+      manifold is orientable. Note that this is equivalent to choosing an orientation on each tangent space and forcing them
+      to be part of the same orientation. With this we now have a construction we can form called the orientation cover of a manifold.
+      For this construction we are free to let \(M\) be not connected by the connected case gives us an even more special object. 
+    </p>
+
+    <p>
+      Let \(M\) be a connected manifold and let 
+      \[
+        \hat{M} = \{(p, O_p) \mid p \in M \text{ and } O_p \text{ is an orientation on } T_pM\}
+      \]
+      along with the projection map \(\pi: \hat{M} \to M\). Now note that this is infact a smooth double covering space of \(M\).
+      The importance of this object comes from the fact that the orientatibility of \(M\) comes down to the connectedness of 
+      this space. To see this intuitively note that if \(\hat{M}\) is connected then there is a path from a positive orientation
+      at a point to a negative one. But this path gives a path in \(GL(n, \R)\) with the basis being with respect to the orientation, the actual
+      choice is not important. But this path has the property that it goes from maps having positive determinant to having negative determiant.
+      But note that there cannot be a continous path like that. Hence the orientatibilty of a manifold comes down to the connectedness 
+      of its orientation cover.
     </p>
 
     <p>
@@ -130,7 +165,7 @@
       \[
         a^i =  \langle\text{grad}(f), X_i\rangle = \mathrm{d}f(X_i) = 0 
       \]
-      for \(i = 1, \dots, m-1\). Hence \(\text{grad}(f) \notin T_pS\) for all \(p \in S\). Now this vector field exists, moreover the existance
+      for \(i = 1, \dots, m-1\). Therefore \(\text{grad}(f) \notin T_pS\) for all \(p \in S\). Now this vector field exists, moreover the existance
       of such a nowhere vanishing vector field is dependent only on the choice of Riemannian metric and Riemannian metrics always exist on
       any smooth manifolds. Hence we may take that such a vector field always exists. Let \(X\) be a vector field on \(M\) that is nowhere
       tangent to \(S\) then on \(S\) we have that \(\iota_X\omega\) is nowhere vanishing since at every point we can always take a basis of 
@@ -139,7 +174,7 @@
     </p>
 
     <p>
-      From this we see that the existance of a nowhere vanishing vector filed is enough to find an orientation on any \(m-1\) dimensional
+      From this we see that the existance of a nowhere vanishing vector field is enough to find an orientation on any \(m-1\) dimensional
       submanifold of \(M\). For \(0 < n \leq m\) it is sufficient to find \(m-n\) nowhere tangent and everywhere linearly independent to 
       submanifold to find an orientation. These vector fields may merely be local frames as well. 
     </p>
@@ -158,31 +193,40 @@
       is a volume form, take a basis \(T_eG\), lets call it \(v_{1e}, \dots, v_{ne}\). Then \(\omega_e(v_{1e}, \dots, v_{ne}) \neq 0\), we choose a basis since this the \(\omega_e\)
       evaluates to something nonzero if and only if the collection is a basis. So now note that \(\mathrm{d}\ell_{g^{-1}}:T_gG \to T_eG\) is an isomorphism, so there are 
       unique tangent vectors \(v_{1g}, \dots, v_{ng} \in T_gG\) such that \((\mathrm{d}\ell_{g^{-1}})_g(v_{ig}) = v_{ie}\). Note now that 
-      \begin{align}
+      \[
+      \begin{align*}
         \omega_g(v_{1g}, \dots, v_{ng}) &= (\ell_{g^{-1}}^*\omega_e)_g(v_{1g}, \dots, v_{ng}) \\
                                         &= \omega_e(\mathrm{d}\ell_{g^{-1}}(v_{1g}), \dots, \mathrm{d}\ell_{g^{-1}}(v_{ng})) \\
                                         &= \omega_e(v_{1e}, \dots, v_{ne}) \\
                                         &\neq 0
-      \end{align}
+      \end{align*}
+      \]
       This shows that the \(\omega_g\) is nonzero. So \(\omega\) is a rough nonzero top form on \(G\). Now we must show that this form is actually smooth. To do this, let us
       make use of a global frame on \(G\). Let us choose a left invariant global frame \(\{X_i\}\), then we note that if \(\omega_e(X_1|_e, \dots, X_n|_e) = c \in \R\) then
-      \begin{align}
+      \[
+      \begin{align*}
         \omega_g(X_1|_g, \dots, X_n|_g) &= (\ell_{g^{-1}}^*\omega_e)_g(X_1|_g, \dots, X_n|_g) \\
                                         &= \omega_e(\mathrm{d}\ell_{g^{-1}}(X_1|_g), \dots, \mathrm{d}\ell_{g^{-1}}(X_n|_g)) \\
                                         &= \omega_e(X_1|_e, \dots, X_n|_e) \\
                                         &= c
-      \end{align}
+      \end{align*}
+      \]
       where we need the left invariance to compute \(\mathrm{d}\ell_{g^{-1}}(X_i|_g)\). Since we have a global frame, every vector field \(X \in \mathfrak{X}(M)\) may be written
       as \(X = x^iX_i\) for some smooth functions \(x^i\). Finally let us take any collection of vector field \(\{Y_i\}_{i = 1}^{n}\) and let us consider the function 
       \[
         p \mapsto \omega_p(Y_1|_p, \dots, Y_n|_p)
       \]
       the form is smooth if and only if this function is smooth. But note that 
-      \begin{align}
+      \[
+      \begin{align*}
         \omega_p(Y_1|_p, \dots, Y_n|_p) &= \omega_p(y_1^i(p)X_i|_p, \dots, y_n^i(p)X_i|_p) \\
                                         &= y_1^{i_1}(p)\cdots y_n^{i_n}(p)\omega_p(X_{i_1}|_p, \dots, X_{i_n}|_p)
-      \end{align}
+      \end{align*}
+      \]
       but this is a product and sum of smooth functions, hence this form is smooth. From this we have seen a very important result, that every Lie group is orientable. 
+      Now if \(M\) is compact then we can choose this volume form in such a way that the volume of the Lie group under this 
+      volume form is \(1\). To do this, let \(\eta\) be the volume form as defined by the process above, then \(\int_M\eta\) is finite
+      and hence define \(\omega = \frac{1}{\int_M\eta}\eta\)
     </p>
       
     <h3>Symplectic Manifolds</h3>
@@ -206,6 +250,162 @@
       of volume form called the Liouville volume form given by \(\frac{\omega^m}{m!}\). Here we have the \(m!\) for normalization reasons. This is very important because this
       gives us that Symplectic manifolds must be orientable. In particular, it gives a sort of nontrivial proof of the fact that for any manifold \(X\) the cotangent bundle
       \(T^*X\) must be orientable, since it has a canonical symplectic form defined on it. 
+    </p>
+
+    <h3>Riemannian Manifolds</h3>
+
+    <p>
+      Unfortunately, unlike in the case of Lie groups and Symplectic manifolds not every Riemannian manifold is orientable. 
+      This can be seen immediately as we know that the mobius band is non orientable yet has a pullback metric on it. So let
+      us restrict ourselves to the case of orientable manifolds. So now we may ask if there is a canonical choice of volume
+      form? It turns out that there is. To define this, at any point \(p \in M\), choose an oriented orthonormal basis 
+      \(\{e_{1p}, \dots, e_{np}\}\) for \(T_pM\) then note that 
+      \[
+        \omega_p = e_{1p} \wedge \cdots \wedge e_{np}
+      \]
+      is a volume form on \(T_pM\). Now this is well defined since if \(\{v_{1p}, \cdots, v_{np}\}\) is another oriented 
+      orthonormal basis we have a linear change of basis \(Av_{ip} = e_{ip}\) then note that 
+      \[
+      \begin{align*}
+        \omega_p &= e_{1p} \wedge \cdots \wedge e_{np} \\
+                 &= (\det A)v_{1p} \wedge \cdots \wedge v_{np} \\
+                 &= v_{1p} \wedge \cdots \wedge v_{np}
+      \end{align*}
+      \]
+      hence this is independent of the choice of orthonormal basis. But how do we define this globally? Recall that an orientation
+      is a nonvanishing section of the orienation bundle. So using the fact that the form is well defined at each point we 
+      may use this orientation section to get an orientated orthonormal basis at each point and define the volume form as such.
+      Note that this construction does depend on the fact that \((M,g)\) is Riemannian since we are using orthonormal bases. The
+      common notation for this volume form is \(d V_g\). Though this may not be exact the reason for this notation is that it
+      defines a measure on compact orientable manifolds. Since we may define 
+      \[
+        \int_M f = \int_M f\,d V_g
+      \]
+      moreover we could just require that \(f\) have compact support and then the above integal is still defined. Also note that
+      if \(M\) is compact we have the volume for \(M\) defined as
+      \[
+        \int_M d V_g
+      \]
+      moreover this is not \(0\) since the form is nowhere vanishing. Then by Stoke's theorem the volume form is never 
+      exact on compact manifolds without boundary, since if \(d V_g\) were exact, say \(dV_g = d\eta\) then
+      \[
+        \begin{align*}
+          0 
+          &\neq \int_M dV_g \\
+          &= \int_{\partial M} \eta \\
+          &= 0
+        \end{align*}
+      \]
+      which is a clear contradiction. It is also important to note that this is not a construction that is unique to Riemannian
+      manifolds, we may also do the exact same thing with volume forms defined above. It is just that it is most common
+      to see this construction used in Riemannian geometry.
+    </p>
+
+    <p>
+      Now let us look at local expresions of this volume form. Let \(x^i\) be oriented local coordinates on \(M\). Let the 
+      cooresponding vector fields be \(\partial_i\) and the one forms be \(dx^i\). Let \(\{e_{1p}, \dots, e_{np}\}\)
+      be an orientated orthonormal basis for \(T_pM\). Now let \(A\) be the change of basis for the coordinate frame to the oriented frame.
+      This now means that in the coordinate frame we have 
+      \[
+        \omega = f\,dx^1 \wedge \cdots \wedge dx^n
+      \]
+      and 
+      \[
+      \begin{align*}
+        \omega_p &= e_{1p} \wedge \cdots \wedge e_{np} \\
+                 &= (\det A)dx^1 \wedge \cdots \wedge dx^n 
+      \end{align*}
+      \]
+      evalutating this on \(\partial_{ip}\) we get that \(f = \det A\). Moreover note that 
+      \[
+      \begin{align*}
+        g_{ij}(p) &= \langle \partial_{ip}, \partial_{jp} \rangle \\
+                  &= \langle A_{i}^{k}e_{kp}, A_{j}^{l}e_{lp} \rangle \\
+                  &= A_{i}^{k}A_{j}^{l}\delta_{kl} \\
+                  &= (A^T)_{k}^{i}A_{j}^{k} \\
+                  &= (A^TA)^{i}_{j}
+      \end{align*}
+      \]
+      hence 
+      \[ 
+        \det(g_{ij}(p)) = \det(A^TA) = (\det A)^2 
+      \]
+      this means that \(\det A = \sqrt{\det(g_{ij}(p))}\) since \(f > 0\). This gives us that 
+      \[
+        \omega = \sqrt{\det(g_{ij})}\,dx^1 \wedge \cdots \wedge dx^n
+      \]
+    </p>
+
+    <h3>Constructions Using Volume Forms</h3>
+
+    <p>
+      On Riemannian manfolds this allows us to do so much now. Turns out this is the structure that is needed to be able to 
+      talk about the most beloved PDEs like the heat equation. To do this we need to define the laplacian, which if we 
+      recall needs us to define the divergence and the gradient of funcitons. So let us start, note that for the gradient, 
+      the defining property is that it is the direction of the greatest change of the function. But in the general case it is 
+      much nicer to note that the metric gives us a diffeomorphism \(TM \to T^*M\), in coordinates this cooresponds to raising 
+      the index of the components. The inverse of this map is a diffeomorphism \(T^*M \to TM\) which corresponds to lowering the 
+      indices. Now note that if \(f: M \to \R\) is smooth then \(df_p \in T_p^*M\) and hence we get a tangent vector 
+      \(\text{grad}f_p \in T_pM\). Note that this is a smooth vector field on \(M\) form the fact that the components are 
+      products and sums of smooth functions. In coordinates note that 
+      \[
+        df = \partial_i f\,dx^i
+      \]
+      and so 
+      \[
+        \text{grad}f = g^{ij}\partial_j f\,\partial_i
+      \]
+      But this does not use the volume form, so let us do that. Note that if \(X\) is a smooth vector field on a Riemannian 
+      manifold then \(d(\iota_XdV_g)\) is a top form. This means that it is a multiple of \(dV_g\) so let \(\text{div } X\) be
+      this factor. The reason for this definition can be seen from the fact that this obeys the divergence theorem from 
+      multivariable calculus. 
+    </p>
+
+    <div id="container">
+    <b>Divergence Theorem</b>
+    <p>
+        Suppose \((M, g)\) is a compact orientable Riemannian manifold with boundary 
+        (though this works even when \(M\) is not orientable) then for any smooth vector field 
+        \(X \in \mathfrak{X}(M)\) and let \(N\) be the unit outward pointing normal vector field on \(\partial M\) then 
+        \[
+          \int_{M}(\text{div } X)\,d V_g = \int_{\partial M}g(X, N)\,i^*\iota_NdV_g
+        \]
+        where \(i: \partial M \to M\) is the inclusion.
+    </p>
+    </div>
+
+    <div id="proof">
+    <p>
+        Proof: This is a standard application of Stoke's Theorem, note theta
+        \[
+        \begin{align*}
+          \int_{M}(\text{div } X)\,d V_g 
+          &= \int_{M}d(\iota_XdV_g) \\
+          &= \int_{\partial M}i^*\iota_X dV_{g} \\
+          &= \int_{\partial M}g(X, N)i^*\iota_N dV_{g}
+        \end{align*}
+        \]
+        We must now justify that \(i^*\iota_X dV_{g} = g(X, N)i^*\iota_N dV_{g}\). So note that tangent vectors 
+        \(Y_1, \dots, Y_{n-1} \in T(\partial M)\), and an orthonormal frame \(e_1, \dots, e_{n-1}\) of \(T(\partial M)\) 
+        we have that \(N, e_1, \dots, e_n\) form an orthonromal frame of \(TM\) and 
+        \[
+        \begin{align*}
+          (i^*\iota_X dV_{g})(Y_1, \dots, Y_{n-1})
+          &= dV_g(X, Y_1, \dots, Y_{n-1}) \\
+          &= dV_g\left(g(X, N)N + \sum_{i=1}^{n-1}g(X, e_i)e_i, Y_1, \dots, Y_{n-1}\right) \\
+          &= g(X, N)dV_g\left(N, Y_1, \dots, Y_{n-1}\right)\\
+          &\qquad\qquad+ \sum_{i=1}^{n-1}g(X, e_i)dV_g\left(e_i, Y_1, \dots, Y_{n-1}\right)\\
+          &= g(X, N)dV_g\left(N, Y_1, \dots, Y_{n-1}\right) \\
+          &= g(X, N)(i^*\iota_NdV_g)(Y_1, \dots, Y_{n-1})
+        \end{align*}
+        \]
+        the reason the other terms vanish is because the \(Y_j\) are a linear combination of the \(e_i\). 
+    </p>
+    </div>
+
+    <p>
+      On Riemannian manfolds, one may use the volume form to extend the definition of the Hodge star operator. More of this
+      can be seen in the following post:  <a href="hodgeStar.html">Hodge star</a>.
     </p>
 
     <!--

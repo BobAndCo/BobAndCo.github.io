@@ -23,8 +23,8 @@
     <h1>Hodge Star Operator</h1>
 
     <p>
-        This is still a work in progress - April 8, 2025
-
+        This is a work in progress, last update was on November 14, 2025
+        <!--April 8, 2025-->
     </p>
 
     <p>
@@ -34,49 +34,96 @@
       \[
           \phi_I = \phi_{i_1} \wedge \cdots \wedge \phi_{i_k}
       \] 
-      where \(I = (i_1, \dots, i_k)\) and \(\phi_i\) are a basis for \(V^*\)
+      where \(I = (i_1, \dots, i_k)\) and \(\phi_i\) is a basis for \(V^*\)
       then the the following collection of vectors
       \(\{\phi_I \mid I = (i_1, \dots, i_k) \text{ and } 1 \leq i_1 < i_2 < \cdots < i_k \leq n\}\)
       is a basis for \(\Lambda^k(V^*)\). This basis now shows us that \(\dim \Lambda^k(V^*) = {n \choose k}\). 
       Since \({n \choose n-k} = {n \choose k}\) we get that \(\Lambda^{k}(V^*)\) and \(\Lambda^{n-k}(V^*)\) are
       isomorphic vector space. But is there a useful isomorphism between these spaces? If we add additional structure
       like in the case of <a href="../Linear Algebra/rieszRepresentation.html">Riesz Representation</a> is there a 
-      canonical isomorphism? This is what we explore now. So let us show that for every \(I_k\), where is an ordered 
-      subset of \(\{1, \dots, n\}\) that is stictly increasing, there is a unique form \(\omega \in \Lambda^{n-k}(V^*)\) 
-      such that 
-      \[
-        \phi_I \wedge \omega = \phi_1 \wedge \cdots \wedge \phi_n
-      \]
-      Let us denote by \(\star\phi_I = \omega\), if such a form does exist, then the equation above is the same as 
-      \[
-          \phi_I \wedge (\star\phi_I) = \phi_1 \wedge \cdots \wedge \phi_n
-      \]
-      Let us first start with the case where \(I\) is a singleton then note that we want to find \(\star\phi_i \in \Lambda^{n-1}(V)\) 
-      such that
-      \[
-          \phi_i \wedge (\star\phi_i) = \phi_1 \wedge \cdots \wedge \phi_i \wedge \cdots \wedge \phi_i = (-1)^{i-1}\phi_i \wedge \phi_1 \wedge \cdots \wedge \widehat{\phi}_i \wedge \cdots \wedge \phi_n
-      \]
-      this gives us that 
-      \[
-          \star\phi_i = (-1)^{i-1} \phi_1 \wedge \cdots \wedge \widehat{\phi}_i \wedge \cdots \wedge \phi_n
-      \]
-      Let us now show that this the unique form that accomplishes this. An arbitrary \(\omega \in \Lambda^{n-1}(V)\) can be written as 
-      \[
-          \omega = \sum_{j=1}^{n}\omega_j\,\phi_1\wedge\cdots\wedge\widehat{\phi}_j\wedge\cdots\wedge\phi_n
-      \]
-      We also required that \(\phi_i \wedge \omega = \phi_1 \wedge \cdots \wedge \phi_n\). Now note that for 
-      \(k \neq i\) we have that 
-      
-      But note that this just fixes the \(i^\text{th}\)
-      component of \(\omega\). So this is not unique. We will deal with this issue later. Now note that \(\star\phi_i\) and \(\star\phi_j\) 
-      are basis vectors for \(\Lambda^{1}(V)\) moreover note that if \(i \neq j\) then these are different basis vectors. 
-      Now taking \(\omega \in \Lambda^1(V)\) we can write \(\omega = \sum_{i}\omega_i\phi_i\) hence we can define the map 
-      \(\star:\Lambda^1(V) \to \Lambda^{n-1}(V)\) by 
-      \[
-          \star\omega = \sum_{i}(-1)^{i-1}\omega_i\,\phi_1 \wedge \cdots \wedge \widehat{\phi}_i \wedge \cdots \wedge \phi_n
-      \]
-      Since \(\star\) is a map between finite dimensional vector spaces and each basis vector is mapped onto linearly 
-      independent vectors that span the codomain space, this map is an isomorphism. 
+      canonical isomorphism? This is what we explore now. 
+    </p>
+
+    <div id="container">
+    <b>Lemma</b>
+    <p>
+        For every \(I_k\), where \(I_k\) is an ordered subset of \(\{1, \dots, n\}\) that is stictly increasing, 
+        there is a unique form \(\eta \in \Lambda^{n-k}(V^*)\) such that 
+        \[
+            \phi_I \wedge \omega = \phi_1 \wedge \cdots \wedge \phi_n
+        \]
+    </div>
+
+    <div id="proof">
+        Proof: We first begin by calling \(\omega = \phi_1 \wedge \cdots \wedge \phi_n\). Let us see 
+        what happens when we have a singleton, so we want to find a form \(\star\phi_i\) 
+        such that \(\phi_i \wedge \star\phi_i = \omega\). Now let \(v_j\) be vectors in \(V\) such that 
+        \(\phi_k(v_j) = \delta_{jk}\). Now we show that \(\star\phi_i = \iota_{v_i}\omega\). So note that 
+        \[
+            \begin{align*}
+                \phi_i \wedge \star\phi_i 
+                &= \phi_i \wedge \iota_{v_i}\omega \\
+                &= \phi_i \wedge \sum_{j=1}^{n}(-1)^{j-1}\phi_j(v_i)\,\phi_1 \wedge \cdots \wedge \widehat{\phi_j} \wedge \cdots \wedge \phi_n \\
+                &= \phi_i \wedge (-1)^{i-1}\phi_1 \wedge \cdots \wedge \widehat{\phi_j} \wedge \cdots \wedge \phi_n \\
+                &= \phi_1 \wedge \cdots \wedge \phi_i \wedge \cdots \wedge \phi_n \\
+                &= \omega
+            \end{align*}
+        \]
+        This concludes the case when we have a singleton. With this intuition out of the way suppose we have 
+        \[
+            \phi_{i_1} \wedge \cdots \wedge \phi_{i_k}
+        \]
+        then consider \(\star(\phi_{i_1} \wedge \cdots \wedge \phi_{i_k}) = \iota_{v_{i_k}}\cdots\iota_{v_{i_1}}\omega\),
+        to save space we will call \(\eta = \star(\phi_{i_1} \wedge \cdots \wedge \phi_{i_k})\) so we compute
+        \[
+            \begin{align*}
+                \phi_{i_1} \wedge \cdots \wedge \phi_{i_k} \wedge \eta
+                &= \phi_{i_1} \wedge \cdots \wedge \phi_{i_k} \wedge \iota_{v_{i_k}}\cdots\iota_{v_{i_1}}\omega \\
+                &= \phi_{i_1} \wedge \cdots \wedge \phi_{i_k} \wedge (-1)^{i_1 - 1}\iota_{v_{i_k}}\cdots\iota_{v_{i_2}}(\phi_1 \wedge \cdots \wedge \widehat{\phi_{i_1}} \wedge \cdots \wedge \phi_n) \\
+                &= \phi_{i_1} \wedge \cdots \wedge \phi_{i_k} \wedge (-1)^{i_1 - 1}(-1)^{i_2 - 2}\iota_{v_{i_k}}\cdots\iota_{v_{i_3}}(\phi_1 \wedge \cdots \wedge \widehat{\phi_{i_1}} \wedge \cdots \wedge \widehat{\phi_{i_2}} \wedge \cdots \wedge \phi_n) \\
+                &= (-1)^{i_1 - 1}\cdots(-1)^{i_k - k}\phi_{i_1} \wedge \cdots \wedge \phi_{i_k} \wedge \phi_1 \wedge \cdots \wedge \widehat{\phi_{i_1}} \wedge \cdots \wedge \widehat{\phi_{i_k}} \wedge \cdots \wedge \phi_n \\
+                &= (-1)^{i_1 - k}\cdots(-1)^{i_k - 1}\phi_{i_1} \wedge \cdots \wedge \phi_{i_k} \wedge \phi_1 \wedge \cdots \wedge \widehat{\phi_{i_1}} \wedge \cdots \wedge \widehat{\phi_{i_k}} \wedge \cdots \wedge \phi_n \\
+                &= (-1)^{i_1 - 1}(-1)^{i_2 - 2}\cdots(-1)^{i_k - k}\phi_{i_k} \wedge \cdots \wedge \phi_{i_2} \wedge \phi_{i_1} \wedge \phi_1 \wedge \cdots \wedge \widehat{\phi_{i_1}} \wedge \cdots \wedge \widehat{\phi_{i_k}} \wedge \cdots \wedge \phi_n \\
+                &= (-1)^{i_2 - 2}\cdots(-1)^{i_k - k}\phi_{i_k} \wedge \cdots \wedge \phi_{i_2} \wedge \phi_1 \wedge \cdots \wedge \widehat{\phi_{i_2}} \wedge \cdots \wedge \widehat{\phi_{i_k}} \wedge \cdots \wedge \phi_n \\
+                &= \phi_1 \wedge \cdots \wedge \phi_n \\
+                &= \omega
+            \end{align*}
+        \]
+        Note that we just redistributed the powers to be able to swap them around, since the exponent powers add under multiplication.
+        This shows that such a vector does in fact exist.
+    </div>
+
+    <p>
+        Now note that this construction does depend on the choice of basis. To make this this a basis independent contruction we 
+        will add in a symmetric nondegenerate bilinear form (we will call this an inner product) on our space. But before we do that, let us first note that the 
+        \(\phi_I \mapsto \star\phi_I\) extends linearly to a map \(\star: \Lambda^k(V^\ast) \to \Lambda^{n-k}(V^\ast)\).
+    </p>
+
+    <div id="container">
+    <b>Theorem</b>
+    <p>
+        The map \(\star: \Lambda^k(V^\ast) \to \Lambda^{n-k}(V^\ast)\) defined by 
+        \[
+            \phi_I \mapsto \iota_{v_{i_k}}\cdots\iota_{v_{i_1}}\omega 
+        \]
+        is an isomorphism of vector spaces.
+    </p>
+    </div>
+
+    <div id="proof">
+        Proof: We know that \(\dim\Lambda^k(V^\ast) = \dim\Lambda^{n-k}(V^\ast)\) so it suffices to show that this map is injective.
+        So suppose that \(\varphi \in \Lambda^k(V^\ast)\) such that \(\star\varphi = 0\). Suppose also that 
+        \(\varphi = \varphi^{i_1\cdots i_k}\phi_{i_1} \wedge \cdots \wedge \phi_{i_k}\) and hence we have 
+        \[
+            0 = \star\varphi = (-1)^{i_1 - 1}\cdots (-1)^{i_k - k}\varphi^{i_1\cdots i_k}\phi_1 \wedge \cdots \wedge \widehat{\phi_{i_1}} \wedge \cdots \wedge \widehat{\phi_{i_k}} \wedge \cdots \wedge \phi_n
+        \]
+        this means all the coefficients are \(0\). This means that \(\varphi = 0\). Hence \(\star\) is injective and moreover
+        it is an isomorphism
+    </div>
+
+    <p>
+        Now let us look at some examples on how to compute such an object and then let us introduce an inner product to make
+        this constrcution canonical.
     </p>
 
     <div id="container">
@@ -166,19 +213,74 @@
             </p>
         </div>
 
+
+    <h3>Extension of Inner Products to Tensor Spaces</h3>
+    
       <p>
-          
-          But let us now investigate what happens when we compose the star operator with itself. Note that 
-          
-          \[
-            \begin{CD}
-              \Omega^1(M) @>\star>> \Omega^{n-1}(M) @>\star>> \Omega^1(M)\\
-            \end{CD}
-          \]
-          Goob
+          The last example shows the need for an inner product. So suppose we now endow our vector space with an inner product
+          \(g\). Now we want to find a way to extend this inner product to all tensor spaces associated to \(V\). We first 
+          extend this to the dual space. First note that \(g\) we may treat this as a map 
+          \(\hat{g}: V \to V\) given by \(\hat{g}(v) = \iota_vg\) and by the nondegeneracy we have that this is an isomorphism,
+          as a slight nod to the <a href="../Linear Algebra/rieszRepresentation.html">Riesz Representation theorem</a>. 
       </p>
 
+      <div id="container">
+        <b>Theorem: Inner Product on Dual Space</b>
+            <p>
+                We may define an inner product on \(V^\ast\) as 
+                \[
+                    h(\varphi, \psi) = g(\hat{g}^{-1}(\varphi), \hat{g}^{-1}(\psi))
+                \]
+            </p>
+      </div>
+
+       <div id="proof">
+            Proof: We need to first show that this is bilinear, note that we will first show that it is linear in the first entry,
+            then we will show it is symmetric which will then show that it is bilinear. So let \(\alpha, \beta \in \mathbb{R}\)
+            and let \(\varphi, \psi, \eta \in V^\ast\) then we compute
+            \[
+                \begin{align*}
+                    h(\alpha\varphi + \beta\psi, \eta)
+                    &= g(\hat{g}^{-1}(\alpha\varphi + \beta\psi), \hat{g}^{-1}(\eta)) \\
+                    &= g(\alpha\hat{g}^{-1}(\varphi) + \beta\hat{g}^{-1}(\psi), \hat{g}^{-1}(\eta)) \\
+                    &= g(\alpha\hat{g}^{-1}(\varphi), \hat{g}^{-1}(\eta)) + g(\beta\hat{g}^{-1}(\psi), \hat{g}^{-1}(\eta)) \\
+                    &= \alpha g(\hat{g}^{-1}(\varphi), \hat{g}^{-1}(\eta)) + \beta g(\hat{g}^{-1}(\psi), \hat{g}^{-1}(\eta)) \\
+                    &= \alpha h(\varphi, \eta) + \beta h(\psi, \eta)
+                \end{align*}
+            \]
+            Next we show that this is symmetric, note that 
+            \[
+                \begin{align*}
+                    h(\varphi, \psi) 
+                    &= g(\hat{g}^{-1}(\varphi), \hat{g}^{-1}(\psi)) \\
+                    &= g(\hat{g}^{-1}(\psi), \hat{g}^{-1}(\varphi)) \\
+                    &= h(\psi, \varphi)
+                \end{align*}
+            \]
+            hence we conclude that \(h\) is bilinear since 
+            \[
+                \begin{align*}
+                    h(\varphi, \alpha\psi + \beta\eta)
+                    &= h(\alpha\psi + \beta\eta, \varphi) \\
+                    &= \alpha h(\psi, \varphi) + \beta h(\eta, \varphi) \\
+                    &= \alpha h(\varphi, \psi) + \beta h(\varphi, \eta) 
+                \end{align*}
+            \]
+            Just as needed. Now we need to show that it is nondegenerate. Suppose \(\psi \in V^\ast\) is such that 
+            \(h(\psi, \varphi) = 0\) for all \(\varphi \in V^\ast\). Then note that 
+            \[
+                \begin{align*}
+                    0 
+                    &= h(\psi, \psi) \\
+                    &= g(\hat{g}^{-1}(\psi), \hat{g}^{-1}(\psi))
+                \end{align*}
+            \]
+            and but non degeneracy of \(g\) we have \(\hat{g}^{-1}(\psi) = 0\) which means that \(\psi = 0\) since 
+            \(\hat{g}\) is an isomorphism. Hence \(h\) is an inner product on \(V^\ast\) just as we needed.
+       </div>
+
       <a href="../../index.html">Go back Home</a>
+
 
   </body>
 
