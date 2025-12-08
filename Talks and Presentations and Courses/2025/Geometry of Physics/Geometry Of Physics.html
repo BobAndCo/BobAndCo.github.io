@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+
+    <head>
+    
+    <!-- Style -->
+    <link href='../../../style.css' rel='stylesheet'>
+
+    <!-- LaTeX integration -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+
+
+    <!-- Define some KaTeX commands -->
+     \(
+         \gdef\L{\mathcal{L}}
+         \gdef\dd{\mathrm{d}}
+         \gdef\dv#1#2{\frac{\dd #1}{\dd #2}}
+         \gdef\pdv#1#2{\frac{\partial #1}{\partial #2}}
+         \gdef\R{\mathbb{R}}
+     \)
+  </head>
+
+  <body>
+
+    <h1>Geometry of Physics</h1>
+
+    <p>
+        This is a reading group with the physics student union (PhySU) at the University of Toronto that 
+        I am conducting for students who are interested in mathematical physics. It
+        covers the main geometry that is used in the subject. We intend on covering the following topics:
+    </p>
+
+    <ul>
+        <li>A breif introduction to Group Theory</li>
+        <li>A breif introduction to Topology</li>
+        <li>Linear and Multilinear algebra</li>
+        <li>Derivative and Integral Theory</li>
+        <li>Introduction to Smooth Manifolds</li>
+        <li>Introduction to Fibre Bundles</li>
+        <li>Introduction To (Psuedo)Riemannian Geometry</li>
+        <li>Introduction to Symplectic Geometry</li>
+        <li>Classical Physics through Smooth Manifolds</li>
+        <li>Spinors</li>
+        <li>Dirac Operator and Spinor motion on Manifolds</li>
+    </ul>
+    
+    <p>
+        Here are the handwritten lecture notes with a breif desciption of what they cover. I am currently (as of December 7, 2025) working on typing these up as well
+        and when I am done, I will post them here.
+    </p>
+
+    <ul>
+        <li> <a href="../Geometry of Physics/Lecture Notes/Lecture Meeting 1.pdf">Lecture 1</a> - We talked about what I want to cover. 
+            The definition of a group, some classical groups, some examples of groups used in physics and examples of how symmetries 
+            correspond to conservation laws. What group homomorphism are. Definition of representations.
+        </li>
+        <br>
+        <li> <a href="../Geometry of Physics/Lecture Notes/Lecture Meeting 2.pdf">Lecture 2</a> - We talked the definition of a group 
+            action, recapped the definition of representations, talked about quantum spin \(\frac{1}{2}\)-particles and the 
+            Stern-Gerlach experiments, the pauli matrices, talked about how to embed \(\R^3\) in a matrix space and introduced 
+            the action of \(\textrm{SU}(2)\) on \(\R^3\) via conjugations (spin action)
+        </li>
+        <br>
+        <li> <a href="../Geometry of Physics/Lecture Notes/Lecture Meeting 3.pdf">Lecture 3</a> - We talked about and motivated the 
+            definition of a topological space (open and closed sets), sequences and convergence in a topological space, 
+            properties of topological spaces such as T2, 2nd countable and compact. Furthermore we introduced the notation 
+            of a continuous map. We introduced the notion of a topological manifold. Finally we introduced an intimate connection 
+            between pointed topological spaces and groups via the (first) fundamental group functor.
+
+        </li>
+        <br>
+        <li> <a href="../Geometry of Physics/Lecture Notes/Lecture Meeting 4.pdf">Lecture 4</a> - We talked about and motivated the 
+            definition the definitions of Bosonic and Fermionic exchange statistics we see in 3 dimensions. We talked about the
+             fundamental group. We defined (the ordered and unordered) configuration spaces and how the fundamental group of the 
+             unordered fundamental group has a natural action on state space that induces exchange statistics. Finally, we talked about 
+             the allowed unitary scalar representations of the groups \(S_n\) and \(B_n\) and how these lead to the theoretical 
+             existence of Anyons.
+        </li>
+        <br>
+        <li> <a href="../Geometry of Physics/Lecture Notes/Lecture Meeting 5.pdf">Lecture 5</a> - We talked about tensor products of 
+            general vector spaces. We saw various isomorphisms between vector spaces and their duals. We say how we can talk about 
+            tensor product spaces as multiparticle states and multilinear maps. We found the transformation laws for the tensors and 
+            their components. We motivated why we want to talk about maps like the determinant.
+        </li>   
+        <br>
+        <li> <a href="../Geometry of Physics/Lecture Notes/Lecture Meeting 6.pdf">Lecture 6</a> - We talked about the complexification 
+            of a vector space and we also defined an almost complex struture on even dimensional real vector spaces. We saw how the 
+            notion of complex and almost complex on vector spaces is the same. We further talked about the alternation map and defined 
+            the wedge product on the space of forms. We talked about inner products in a more general setting and we defined an extension
+             of an inner product onto the various tensor spaces. We finally defined the Hodge star operator on the space of k-forms.
+        </li>
+        <br>
+        <li> <a href="../Geometry of Physics/Lecture Notes/Lecture Meeting 7.pdf">Lecture 7</a> - We talked about Hilbert space, 
+            Banach spaces, symmetric tensors and the symmetric product. We also talked about how symmetric tensors are homogenous 
+            polynomials of vector spaces. Finally we talked about vector valued tensors and Lie algebras.
+        </li>
+        <br>
+        <li> <a href="../Geometry of Physics/Lecture Notes/Lecture Meeting 8.pdf">Lecture 8</a> - We talked about why calculus is defined
+             over the reals and not the rationals, this gave us motivation to then restrict ourselves to complete spaces with norms 
+             (in other words Banach spaces). We then defined the derivative of a banach space valued curve and used it to generalize 
+             to the case of directional derivatives called Gâteaux variations. We used this to define the Gâteaux derivative of a map 
+             between arbitrary banach spaces. We then discussed how this notion is too weak and gave an example of a Gâteaux 
+             differentiable function that is not continuous. We used this to define Frechét derivatives and we defined functions of 
+             class \(C^n\). We concluded with the three main(hard) theorems of Frechét calculus that prove to use their use. 
+             These were the chain rule, inverse function theorem and the implicit function theorem.
+        </li>
+        <br>
+        <li> <a href="../Geometry of Physics/Lecture Notes/Lecture Meeting 9.pdf">Lecture 9</a> - We motivated the need for integration
+             in many dimensions through looking at the work done by a force along a certain path. We then tried to talk about flux 
+             through a surface and ran into the problem of integration over \(\R^2\). We then motivated why the Riemann integral does not 
+             suffice for physics through an example by Henri Lebesgue. This then lead us to the notation of measure spaces and the 
+             notation of a measure. We defined the Borel sigma algebra of a topological space and defined the Lebesgue sigma algebra 
+             of \(\R^n\).
+        </li>
+        <br>
+        <li> <a href="../Geometry of Physics/Lecture Notes/Lecture Meeting 10.pdf">Lecture 10</a> - We developed the theory of Lebesgue 
+            integration of measureable functions on sigma finite measure spaces. We talked about \(L^p\) spaces. We also talked about the 
+            Monotone Convergence Theorem (MCT) and the Dominated Convergence Theorem (DCT).
+        </li>
+        <br>
+        <li> <a href="../Geometry of Physics/Lecture Notes/Lecture Meeting 11.pdf">Lecture 11</a> - We further developed the theory of 
+            Lebesgue integration on sigma finite measure spaces. We talked about the product measure, iterated integrals and saw how to 
+            compute integrals over product spaces using Tonelli's and Fubini's Theorem.
+        </li>
+        <br>
+        <li> <a href="../Geometry of Physics/Lecture Notes/Lecture Meeting 12.pdf">Lecture 12</a> - We saw how to integrate over surfaces
+             in 2d. Moreover we say that all the theorems that look like FTC follow the exact same pattern which gives us motivation 
+             to strive towards a generalization of these. Moreover we say that a lot of the constructions in specific dimensions seem 
+             arbitrary and use the dimensionality of the space a lot.
+        </li>
+        <br>
+        <li> <a href="../Geometry of Physics/Lecture Notes/Lecture Meeting 13.pdf">Lecture 13</a> - We introduced the ideas of Catgory 
+            theory and give the basic definitions. We saw how categories are already things we have seen before and we gave a lot of 
+            examples of various categories. We defined the idea of a functor and natural transformation, though we will not really need 
+            to know what natural transformations are. We formalized the idea of a dual object using the opposite category.
+        </li>   
+        <br>
+        <li> <a href="../Geometry of Physics/Lecture Notes/Lecture Meeting 14.pdf">Lecture 14</a> - We introduced the idea of smooth
+            manifolds. We gave examples of smooth manifolds and defined smooth maps on these objects.
+        </li>
+        <br>
+        <li> <a href="../Geometry of Physics/Lecture Notes/Lecture Meeting 15.pdf">Lecture 15</a> - We introduced the ideas of tangent 
+            vectors, differentials of smooth functions, lie groups and their associated lie algebras. We also computed the differential 
+            of multiplication and inversion and we looked at the adjoint representations of the lie group and its lie algebra. 
+        </li>
+        <br>
+        <li> <a href="../Geometry of Physics/Lecture Notes/Lecture Meeting 16.pdf">Lecture 16</a> - We saw how to reconstruct a manifold 
+            through the atlas. We used this to develop the idea of a tangent bundle. Finally we developed the idea of cocycles and 
+            used it to define vector bundles and fibre bundles. 
+        </li>
+    </ul>
+
+    <p>
+        As part of the reading course, I have posted some problem sheets to help with the understanding of the content.
+    </p>
+
+    <ul>
+        <li> <a href="../Geometry of Physics/Psets/Problem_Set_1_Geometry_of_Physics.pdf">Problem Sheet 1</a> - This problem sheet 
+            covers topological groups, tensors and other products, trace and contraction and the group \(\textrm{Spin}(3)\)
+        </li>
+        <br>
+        <li> <a href="../Geometry of Physics/Psets/Problem_Set_2_Geometry_of_Physics.pdf">Problem Sheet 2</a> - This problem sheet
+            covers computations of derivatives and integrals in multiple definition, Picard-Lindel&#246f theorem and the 
+            relationship between complexification and symplectic vector spaces.
+        </li>
+        <br>
+        <li> <a href="../Geometry of Physics/Psets/Problem_Set_3_Geometry_of_Physics.pdf">Problem Sheet 3</a> - This problem sheet 
+            covers ODEs, the matrix exponential, PDEs and the compoutations of the volume and the surface area of higher dimensional 
+            spheres and the area of a blob in \(\R^2\) with smooth boundary.
+    </ul>
+
+    <a href="../../../index.html">Go back Home</a>
+
+  </body>
+
+</html>
