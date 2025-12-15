@@ -32,7 +32,8 @@
     <h1>Hodge Star Operator</h1>
 
     <p>
-        This is a work in progress, last update was on November 14, 2025
+        This is a work in progress, last update was on December 15, 2025
+        <!--November 14, 2025-->
         <!--April 8, 2025-->
     </p>
 
@@ -287,6 +288,53 @@
             and but non degeneracy of \(g\) we have \(\hat{g}^{-1}(\psi) = 0\) which means that \(\psi = 0\) since 
             \(\hat{g}\) is an isomorphism. Hence \(h\) is an inner product on \(V^\ast\) just as we needed.
        </div>
+
+       <p>
+            Using this we can now extend the inner product on a vector space \(V\) to all its tensor products 
+            \(\mathcal{T}^k_l(V) = (V^\ast)^{\otimes k} \otimes V^{\otimes l}\). We will first extend them to decomposable tensors and then we
+            extend it bilinearly to the entire tensor space. 
+       </p>
+
+       <div id="container">
+        <b>Theorem: Inner Product on Tensor Spaces \(\mathcal{T}^k_l(V)\)</b>
+            <p>
+                We may define an inner product on \(\mathcal{T}^k_l(V)\) on decomposable tensors as 
+                \[
+                    \langle \varphi^1 \otimes \cdots \otimes \varphi^k \otimes v_1 \otimes \cdots \otimes v_l, 
+                    \psi^1 \otimes \cdots \otimes \psi^k \otimes w_1 \otimes \cdots \otimes w_l \rangle 
+                    = h(\varphi^1, \psi^1)\cdots h(\varphi^k, \psi^k)g(v_1, w_1) \cdots g(v_l, w_l)
+                \]
+                and we then extend it to the rest of \(\mathcal{T}^k_l(V)\) by bilinearity.
+            </p>
+      </div>
+
+      <div id="proof">
+        The bilinearity and the symmetry are trivial since it is built into the definition of the function. Now we will show that this is 
+        nondegenerate. Note that any tensor is a sum of decomposable ones. Let \(e_1, \cdots, e_n\) be an orthonormal basis for \(V\) and let
+        \(\varphi^1, \cdots, \varphi^n\) be the corresponding dual basis, meaning that \(\varphi^i(v) = g(v, e_i)\), with the isomorphism given by the inner product on \(V\). 
+        Note that by the defintion of the inner product this is an orthonormal basis on \(V^\ast\). Now any \(f \in \mathcal{T}^k_l\) we have 
+        \[
+            f = f_{i_1\cdots i_k}^{j_1\cdots j_l}\varphi^{i_1} \otimes \cdots \otimes \varphi^{i_k} \otimes e_{j_1} \otimes \cdots \otimes e_{j_l}
+        \]
+        then note that 
+        \[
+            \begin{align*}
+                0 &= \langle f, f\rangle \\
+                  &= \langle f_{i_1\cdots i_k}^{j_1\cdots j_l}\varphi^{i_1} \otimes \cdots \otimes \varphi^{i_k} \otimes e_{j_1} \otimes \cdots \otimes e_{j_l}, f_{m_1\cdots m_k}^{n_1\cdots n_l} \varphi^{m_1} \otimes \cdots \otimes \varphi^{m_k} \otimes e_{n_1} \otimes \cdots \otimes e_{n_l} \rangle \\
+                  &= f_{i_1\cdots i_k}^{j_1\cdots j_l}f_{m_1\cdots m_k}^{n_1\cdots n_l}\langle \varphi^{i_1} \otimes \cdots \otimes \varphi^{i_k} \otimes e_{j_1} \otimes \cdots \otimes e_{j_l}, \varphi^{m_1} \otimes \cdots \otimes \varphi^{m_k} \otimes e_{n_1} \otimes \cdots \otimes e_{n_l} \rangle \\
+                  &= f_{i_1\cdots i_k}^{j_1\cdots j_l}f_{m_1\cdots m_k}^{n_1\cdots n_l}h(\varphi^{i_1}, \varphi^{m_1})\cdots h(\varphi^{i_k}, \varphi^{m_k})g(e_{j_1}, e_{n_1})\cdots g(e_{j_l}, e_{n_l}) \\
+                  &= f_{i_1\cdots i_k}^{j_1\cdots j_l}f_{m_1\cdots m_k}^{n_1\cdots n_l}\delta^{i_1m_1}\cdots \delta^{i_km_k}\delta_{j_1n_1}\cdots\delta_{j_ln_l} \\
+                  &= (f_{i_1\cdots i_k}^{j_1\cdots j_l})^2
+            \end{align*}
+        \]
+        hence \(f_{i_1\cdots i_k}^{j_1\cdots j_l} = 0\) for all possible indices. This means that \(f = 0\). This makes the function as defined
+        is an inner product on \(\mathcal{T}^k_l(V)\)
+      </div>
+
+      <p>
+        With this, we note that the space of forms is a subspace of \(\mathcal{T}^k(V)\) and hence the inner product restricts to an inner product
+        on the space of forms.
+      </p>
 
       <a href="../../index.html">Go back Home</a>
 
