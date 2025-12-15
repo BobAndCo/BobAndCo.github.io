@@ -374,8 +374,8 @@
     <b>Divergence Theorem</b>
     <p>
         Suppose \((M, g)\) is a compact orientable Riemannian manifold with boundary 
-        (though this works even when \(M\) is not orientable) then for any smooth vector field 
-        \(X \in \mathfrak{X}(M)\) and let \(N\) be the unit outward pointing normal vector field on \(\partial M\) then 
+        (though this works even when \(M\) is not orientable), let \(N\) be the unit outward pointing normal vector field on \(\partial M\)
+        then for any smooth vector field \(X \in \mathfrak{X}(M)\) then 
         \[
           \int_{M}(\text{div } X)\,d V_g = \int_{\partial M}g(X, N)\,i^*\iota_NdV_g
         \]
@@ -385,7 +385,7 @@
 
     <div id="proof">
     <p>
-        Proof: This is a standard application of Stoke's Theorem, note theta
+        Proof: This is a standard application of Stokes' Theorem, note that
         \[
         \begin{align*}
           \int_{M}(\text{div } X)\,d V_g 
