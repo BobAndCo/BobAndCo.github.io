@@ -47,7 +47,9 @@
       \] 
       where \(I = (i_1, \dots, i_k)\) and \(\phi_i\) is a basis for \(V^*\)
       then the the following collection of vectors
-      \(\{\phi_I \mid I = (i_1, \dots, i_k) \text{ and } 1 \leq i_1 < i_2 < \cdots < i_k \leq n\}\)
+      \[
+        \{\phi_I \mid I = (i_1, \dots, i_k) \text{ and } 1 \leq i_1 < i_2 < \cdots < i_k \leq n\}
+      \]
       is a basis for \(\Lambda^k(V^*)\). This basis now shows us that \(\dim \Lambda^k(V^*) = {n \choose k}\). 
       Since \({n \choose n-k} = {n \choose k}\) we get that \(\Lambda^{k}(V^*)\) and \(\Lambda^{n-k}(V^*)\) are
       isomorphic vector space. But is there a useful isomorphism between these spaces? If we add additional structure
@@ -342,7 +344,7 @@
       </div>
 
       <div id="proof">
-        The bilinearity and the symmetry are trivial since it is built into the definition of the function. Now we will show that this is 
+        Proof: The bilinearity and the symmetry are trivial since it is built into the definition of the function. Now we will show that this is 
         nondegenerate. Note that any tensor is a sum of decomposable ones. Let \(e_1, \cdots, e_n\) be an orthonormal basis for \(V\) and let
         \(\varphi^1, \cdots, \varphi^n\) be the corresponding dual basis, meaning that \(\varphi^i(v) = g(v, e_i)\), with the isomorphism given by the inner product on \(V\). 
         Note that by the defintion of the inner product this is an orthonormal basis on \(V^\ast\). Now any \(f \in \mathcal{T}^k_l\) we have 
@@ -402,7 +404,7 @@
     </div>
 
     <div id="proof">
-        Note that the map 
+        Proof: Note that the map 
         \[
             \phi_I \to \iota_{v_{i_k}} \cdots \iota_{v_{i_1}}\omega
         \]
@@ -447,7 +449,7 @@
       </div>
 
       <div id="proof">
-        Note that the existence of such an operator is already done since we extended the inner product space version of the 
+        Proof: Note that the existence of such an operator is already done since we extended the inner product space version of the 
         Hodge star to the fibres of \(\Lambda^kT^\ast M\). Moreover the uniqueness is also taken care of since the operator 
         is linear and hence is determined by its value on some basis. We can moreover resetrict to an orthonormal basis by
         multiplying through via a determinant that will be cancelled by the inverse determiant from the induced volume form.
