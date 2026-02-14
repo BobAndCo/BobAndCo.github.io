@@ -285,22 +285,22 @@
       is a nonvanishing section of the orienation bundle. So using the fact that the form is well defined at each point we 
       may use this orientation section to get an orientated orthonormal basis at each point and define the volume form as such.
       Note that this construction does depend on the fact that \((M,g)\) is Riemannian since we are using orthonormal bases. The
-      common notation for this volume form is \(d V_g\). Though this may not be exact the reason for this notation is that it
+      common notation for this volume form is \(\dd V_g\). Though this may not be exact the reason for this notation is that it
       defines a measure on compact orientable manifolds. Since we may define 
       \[
-        \int_M f = \int_M f\,d V_g
+        \int_M f = \int_M f\,\dd V_g
       \]
       moreover we could just require that \(f\) have compact support and then the above integal is still defined. Also note that
       if \(M\) is compact we have the volume for \(M\) defined as
       \[
-        \int_M d V_g
+        \int_M\dd V_g
       \]
       moreover this is not \(0\) since the form is nowhere vanishing. Then by Stoke's theorem the volume form is never 
-      exact on compact manifolds without boundary, since if \(d V_g\) were exact, say \(dV_g = d\eta\) then
+      exact on compact manifolds without boundary, since if \(\dd V_g\) were exact, say \(\dd V_g = d\eta\) then
       \[
         \begin{align*}
           0 
-          &\neq \int_M dV_g \\
+          &\neq \int_M \dd V_g \\
           &= \int_{\partial M} \eta \\
           &= 0
         \end{align*}
@@ -365,7 +365,7 @@
         \text{grad}f = g^{ij}\partial_j f\,\partial_i
       \]
       But this does not use the volume form, so let us do that. Note that if \(X\) is a smooth vector field on a Riemannian 
-      manifold then \(d(\iota_XdV_g)\) is a top form. This means that it is a multiple of \(dV_g\) so let \(\text{div } X\) be
+      manifold then \(d(\iota_X\dd V_g)\) is a top form. This means that it is a multiple of \(\dd V_g\) so let \(\text{div } X\) be
       this factor. The reason for this definition can be seen from the fact that this obeys the divergence theorem from 
       multivariable calculus. 
     </p>
@@ -377,7 +377,7 @@
         (though this works even when \(M\) is not orientable), let \(N\) be the unit outward pointing normal vector field on \(\partial M\)
         then for any smooth vector field \(X \in \mathfrak{X}(M)\) then 
         \[
-          \int_{M}(\text{div } X)\,d V_g = \int_{\partial M}g(X, N)\,i^*\iota_NdV_g
+          \int_{M}(\text{div } X)\,d V_g = \int_{\partial M}g(X, N)\,i^*\iota_N\dd V_g
         \]
         where \(i: \partial M \to M\) is the inclusion.
     </p>
@@ -388,24 +388,24 @@
         Proof: This is a standard application of Stokes' Theorem, note that
         \[
         \begin{align*}
-          \int_{M}(\text{div } X)\,d V_g 
-          &= \int_{M}d(\iota_XdV_g) \\
-          &= \int_{\partial M}i^*\iota_X dV_{g} \\
-          &= \int_{\partial M}g(X, N)i^*\iota_N dV_{g}
+          \int_{M}(\text{div } X)\,\dd V_g 
+          &= \int_{M}d(\iota_X\,\dd V_g) \\
+          &= \int_{\partial M}i^*\iota_X \,\dd V_{g} \\
+          &= \int_{\partial M}g(X, N)i^*\iota_N\, \dd V_{g}
         \end{align*}
         \]
-        We must now justify that \(i^*\iota_X dV_{g} = g(X, N)i^*\iota_N dV_{g}\). So note that tangent vectors 
+        We must now justify that \(i^*\iota_X\dd V_{g} = g(X, N)i^*\iota_N\,\dd V_{g}\). So note that tangent vectors 
         \(Y_1, \dots, Y_{n-1} \in T(\partial M)\), and an orthonormal frame \(e_1, \dots, e_{n-1}\) of \(T(\partial M)\) 
         we have that \(N, e_1, \dots, e_n\) form an orthonromal frame of \(TM\) and 
         \[
         \begin{align*}
-          (i^*\iota_X dV_{g})(Y_1, \dots, Y_{n-1})
-          &= dV_g(X, Y_1, \dots, Y_{n-1}) \\
-          &= dV_g\left(g(X, N)N + \sum_{i=1}^{n-1}g(X, e_i)e_i, Y_1, \dots, Y_{n-1}\right) \\
-          &= g(X, N)dV_g\left(N, Y_1, \dots, Y_{n-1}\right)\\
-          &\qquad\qquad+ \sum_{i=1}^{n-1}g(X, e_i)dV_g\left(e_i, Y_1, \dots, Y_{n-1}\right)\\
-          &= g(X, N)dV_g\left(N, Y_1, \dots, Y_{n-1}\right) \\
-          &= g(X, N)(i^*\iota_NdV_g)(Y_1, \dots, Y_{n-1})
+          (i^*\iota_X \dd V_{g})(Y_1, \dots, Y_{n-1})
+          &= \dd V_g(X, Y_1, \dots, Y_{n-1}) \\
+          &= \dd V_g\left(g(X, N)N + \sum_{i=1}^{n-1}g(X, e_i)e_i, Y_1, \dots, Y_{n-1}\right) \\
+          &= g(X, N)\,\dd V_g\left(N, Y_1, \dots, Y_{n-1}\right)\\
+          &\qquad\qquad+ \sum_{i=1}^{n-1}g(X, e_i)\,\dd V_g\left(e_i, Y_1, \dots, Y_{n-1}\right)\\
+          &= g(X, N)\,\dd V_g\left(N, Y_1, \dots, Y_{n-1}\right) \\
+          &= g(X, N)(i^*\iota_N\dd V_g)(Y_1, \dots, Y_{n-1})
         \end{align*}
         \]
         the reason the other terms vanish is because the \(Y_j\) are a linear combination of the \(e_i\). 

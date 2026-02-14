@@ -32,7 +32,8 @@
     <h1>Hodge Star Operator</h1>
 
     <p>
-        This is a work in progress, last update was on December 15, 2025
+        This is a work in progress, last update was on February 14, 2026.
+        <!--December 15, 2025-->
         <!--November 14, 2025-->
         <!--April 8, 2025-->
     </p>
@@ -60,7 +61,7 @@
         For every \(I_k\), where \(I_k\) is an ordered subset of \(\{1, \dots, n\}\) that is stictly increasing, 
         there is a unique form \(\eta \in \Lambda^{n-k}(V^*)\) such that 
         \[
-            \phi_I \wedge \omega = \phi_1 \wedge \cdots \wedge \phi_n
+            \phi_I \wedge \eta = \phi_1 \wedge \cdots \wedge \phi_n
         \]
     </div>
 
@@ -128,7 +129,33 @@
             0 = \star\varphi = (-1)^{i_1 - 1}\cdots (-1)^{i_k - k}\varphi^{i_1\cdots i_k}\phi_1 \wedge \cdots \wedge \widehat{\phi_{i_1}} \wedge \cdots \wedge \widehat{\phi_{i_k}} \wedge \cdots \wedge \phi_n
         \]
         this means all the coefficients are \(0\). This means that \(\varphi = 0\). Hence \(\star\) is injective and moreover
-        it is an isomorphism
+        it is an isomorphism.
+    </div>
+    <div id="proof">
+        We can also find the explicit inverse of this map. Note that 
+        \[
+            \begin{align*}
+                \star(\star \phi)_I 
+                &= \star((-1)^{i_1 - 1}\cdots (-1)^{i_k - k}\phi_1 \wedge \cdots \wedge \widehat{\phi_{i_1}} \wedge \cdots \wedge \widehat{\phi_{i_k}} \wedge \cdots \wedge \phi_n) \\
+                &= (-1)^{i_1 - 1}\cdots (-1)^{i_k - k}\star(\phi_1 \wedge \cdots \wedge \widehat{\phi_{i_1}} \wedge \cdots \wedge \widehat{\phi_{i_k}} \wedge \cdots \wedge \phi_n) \\
+                &= (-1)^{i_1 - 1}\cdots (-1)^{i_k - k}(-1)^{j_1 - 1}\cdots (-1)^{j_{n-1} - (n-k)}\phi_I
+            \end{align*}
+        \]
+        where the \(i\) and \(j\) sequences come together to give \(1, \dots, n\). This comes from the definition
+        of the Hodge star. Note that the exponent is given by 
+        \[
+            \begin{align*}
+                (1 + \dots + n) - (1 + \dots + k) - (1 + \dots + (n - k))
+                &= \frac{n(n+1)}{2} - \frac{k(k+1)}{2} - \frac{(n-k)(n-k+1)}{2} \\
+                &= \frac{n^2 + n - k^2 - k - n^2 + nk - n + nk - k^2 + k}{2} \\
+                &= \frac{-2k^2 + 2nk}{2} \\
+                &= k(n-k)
+            \end{align*}
+        \]
+        hence we have 
+        \[
+            \star(\star \omega) = (-1)^{k(n-k)}\omega
+        \]
     </div>
 
     <p>
@@ -206,12 +233,12 @@
       <div id="container">
         <b>Example III</b>
             <p>
-                If we are given \(\omega, \eta \in \Lambda^1(V)\) then note that \(\omega = \sum_{i}\omega_i \phi_i\) and 
+                If we are given \(\omega, \eta \in \Lambda^1(V^\ast)\) then note that \(\omega = \sum_{i}\omega_i \phi_i\) and 
                 \(\eta = \sum_i \eta_i \phi_i\) then note that 
                 \[
                     \star\eta = \sum_{i}(-1)^{i-1}\eta_i\,\phi_1 \wedge \cdots \wedge \widehat{\phi}_i \wedge \cdots \wedge \phi_n
                 \]
-                So note that 
+                So we have 
                 \[
                   \begin{aligned}
                       \omega \wedge (\star\eta) &= \sum_{i}(-1)^{i-1}\omega_i\eta_i\,\phi_i \wedge \phi_1 \wedge \cdots \wedge \widehat{\phi}_i \wedge \cdots \wedge \phi_n\\
@@ -219,7 +246,11 @@
                                                 &= \langle \omega, \eta \rangle \phi_1 \wedge \cdots \wedge \phi_n 
                   \end{aligned}
                 \]
-                Given the same identification as in the example above. 
+                Given the same identification as in the example above. Moreover if \(\psi_i\) is another orthonormal basis
+                from the same orientation as \(\phi_i\) we have the existence of some unit determiant linear map \(A\) such 
+                that the map is described by \(A\psi_i = \phi_i\). This means that \(\omega_\psi = \omega_\phi\) where 
+                these are the volume forms induced by each basis. This now shows that this property is independent of choice
+                 of orthonormal basis.
             </p>
         </div>
 
@@ -300,9 +331,11 @@
             <p>
                 We may define an inner product on \(\mathcal{T}^k_l(V)\) on decomposable tensors as 
                 \[
-                    \langle \varphi^1 \otimes \cdots \otimes \varphi^k \otimes v_1 \otimes \cdots \otimes v_l, 
-                    \psi^1 \otimes \cdots \otimes \psi^k \otimes w_1 \otimes \cdots \otimes w_l \rangle 
-                    = h(\varphi^1, \psi^1)\cdots h(\varphi^k, \psi^k)g(v_1, w_1) \cdots g(v_l, w_l)
+                    \begin{align*}
+                        \langle \varphi^1 \otimes \cdots \otimes \varphi^k \otimes v_1 \otimes \cdots \otimes v_l&, 
+                        \psi^1 \otimes \cdots \otimes \psi^k \otimes w_1 \otimes \cdots \otimes w_l \rangle \\
+                        &= h(\varphi^1, \psi^1)\cdots h(\varphi^k, \psi^k)g(v_1, w_1) \cdots g(v_l, w_l)
+                    \end{align*}
                 \]
                 and we then extend it to the rest of \(\mathcal{T}^k_l(V)\) by bilinearity.
             </p>
@@ -333,7 +366,162 @@
 
       <p>
         With this, we note that the space of forms is a subspace of \(\mathcal{T}^k(V)\) and hence the inner product restricts to an inner product
-        on the space of forms.
+        on the space of forms. But as it turns out, we want this inner product but scaled slightly. 
+        We make use of the convention that 
+        \[
+            \omega \wedge \eta = \frac{(k+l)!}{k!l!}\text{Alt}(\omega \wedge \eta)
+        \]
+        With this we define the inner product on decomposable forms \(\omega^1 \wedge \cdots \wedge \omega^k\) and 
+        \(\eta^1 \wedge \cdots \wedge \eta^k\) by 
+        \[
+            \langle \omega^1 \wedge \cdots \wedge \omega^k, \eta^1 \wedge \cdots \wedge \eta^k \rangle 
+            = \det(\langle \omega^i, \eta^j \rangle)
+        \] 
+        This now makes \(\Lambda^k(V^*)\) into an inner product space and hence we can define a Hodge star operator 
+        as the operator such that 
+        \[
+            \omega \wedge \star\eta = \langle \omega, \eta\rangle\,\omega
+        \]
+        It now remains to show that this definition agrees with the definition given above.
+      </p>
+
+    <div id="container">
+        <b>Theorem: Hodge Star Operator on Inner Product Spaces</b>
+        <p>
+            Let \((V, g)\) be an inner product space and let \(v_i\) be an orthonormal basis with dual basis \(\phi_i\) then 
+            the map 
+            \[
+                \phi_I \to \iota_{v_{i_k}} \cdots \iota_{v_{i_1}}\omega
+            \]
+            coincides with the map such that 
+            \[
+                \omega \wedge \star\eta = \langle \omega, \eta\rangle\,\omega
+            \]
+            for all \(\omega, \eta \in \Lambda^k(V^*)\)
+        </p>
+    </div>
+
+    <div id="proof">
+        Note that the map 
+        \[
+            \phi_I \to \iota_{v_{i_k}} \cdots \iota_{v_{i_1}}\omega
+        \]
+        was defined to be the unique form \(\eta\) such that \(\phi_I \wedge \eta = \omega\). But note that 
+        \[
+            \star\phi_I = \eta = (-1)^{i_1 - 1}\cdots(-1)^{i_k - k}\phi_1 \wedge \cdots \wedge \widehat{\phi_{i_1}} \wedge \cdots \wedge \widehat{\phi_{i_k}} \wedge \cdots \wedge \phi_n
+        \]
+        and if \(\alpha = \alpha^{j_1\cdots j_k}\phi_{j_1}\wedge \cdots \wedge \phi_{j_k}\) (here we are summing over 
+        increasing sequences here). Note that 
+        \[
+            \begin{align*}
+                \alpha \wedge \star\phi_I 
+                &= (-1)^{i_1 - 1}\cdots(-1)^{i_k - k}\alpha^{j_1\cdots j_k}\phi_{j_1}\wedge \cdots \wedge \phi_{j_k} \wedge \phi_1 \wedge \cdots \wedge \widehat{\phi_{i_1}} \wedge \cdots \wedge \widehat{\phi_{i_k}} \wedge \cdots \wedge \phi_n \\
+                &= (-1)^{i_1 - 1}\cdots(-1)^{i_k - k}\alpha^{i_1\cdots i_k}\phi_{i_1}\wedge \cdots \wedge \phi_{i_k} \wedge \phi_1 \wedge \cdots \wedge \widehat{\phi_{i_1}} \wedge \cdots \wedge \widehat{\phi_{i_k}} \wedge \cdots \wedge \phi_n \\
+                &= \alpha^{i_1\cdots i_k}\omega \\
+                &= \langle \alpha, \phi_I\rangle\omega
+            \end{align*}
+        \]
+        here we used the fact that any other sequence of the \(j\)'s that are not \(I\) will have repeated one forms and 
+        hence is \(0\). But this now means that the the two maps coincide since they are the same on a basis.
+    </div>
+
+
+    <h2>Hodge Star Operator on Manifolds</h2>
+        <p>
+            Now that we have an inner product on the space of forms we can extend this idea fibrewise to the space of differential
+            forms on manifolds. We do this in such a way that on each fibre the inner product is given by the formula we defined 
+            above. Let us now extend the ideas from example III. For this, let \((M, g)\) be an oriented Riemannian manifold. Then we 
+            have the existence of the canonical volume form \(\dd V_g\). 
+        </p>
+
+        <div id="container">
+            <b>Theorem: Hodge Star Operator on Manifolds (Existence and Uniqueness)</b>
+                <p>
+                    There is a unique operator \(\star: \Lambda^kT^\ast M \to \Lambda^{n-k}T^\ast M\) such that 
+                    \[
+                        \omega \wedge \star\eta = \langle \omega, \eta\rangle\,\dd V_g
+                    \]
+                    for all \(\omega, \eta \in \Omega^k(M)\). It should be clear here that this operation is done pointwise,
+                    hence it can be extended to the forms. Moreover this operator is a smooth bundle isomorphism.
+                </p>
+      </div>
+
+      <div id="proof">
+        Note that the existence of such an operator is already done since we extended the inner product space version of the 
+        Hodge star to the fibres of \(\Lambda^kT^\ast M\). Moreover the uniqueness is also taken care of since the operator 
+        is linear and hence is determined by its value on some basis. We can moreover resetrict to an orthonormal basis by
+        multiplying through via a determinant that will be cancelled by the inverse determiant from the induced volume form.
+        But as seen in each fibre, the value for an orthonormal basis is given as in the beginning lemma. It therefore
+        remains to show that this map is smooth. But that is also taken care of since on any chart, this becomes the Hodge 
+        star on \(\R^n\). But the components of \(\star\eta\) is a polynomial in the metric components and the components
+        of \(\eta\). Hence the map is smooth. It is also a bundle isomorphism since it maps a fibre over a point into a 
+        fibre over the same point. Moreover on each fibre it is an isomorphism.
+      </div>
+
+      <h2>Uses of the Hodge Star</h2>
+
+      <p>
+        The existence of the Hodge star is nice, but what does this really do for us? For one, this allows us to find a
+        formula for the adjoint of the exterior derivative with respect to the inner product on forms given by 
+        \[
+            (\omega, \eta) = \int_M \langle \omega, \eta\rangle\,\dd V_g
+        \]
+        So we restrict ourselves to compact orientable manifolds for this. With this setup we now want to find the 
+        (formal) adjoint for \(\dd: \Omega^k(M) \to \Omega^{k+1}(M)\) with respect to this inner product. To find this 
+        formula we just do a direct computation. One thing we need to note is that \((-1)^{k} = (-1)^{-k}\) for all \(k\).
+        Armed with this we compute 
+        \[
+            \begin{align*}
+                (\omega, \dd\eta)
+                &= \int_M \langle \omega, \eta\rangle\,\dd V_g \\
+                &= \int_M \dd\eta \wedge \star \omega 
+            \end{align*}
+        \]
+        Since \(\langle \omega, \eta\rangle\,\dd V_g\) is a top form, it is closed. This means that 
+        \[
+            \begin{align*}
+                0 
+                &= \dd(\langle \omega, \eta\rangle\,\dd V_g) \\
+                &= \dd(\eta \wedge \star\omega) \\
+                &= \dd\eta \wedge \star\omega + (-1)^{k-1}\eta \wedge (\dd\star\omega) 
+            \end{align*}
+        \]
+        giving us \((-1)^k\eta \wedge (\dd\star\omega) = (-1)^{k-2}\eta \wedge (\dd\star\omega) = \dd\eta \wedge \star\omega\)
+        hence 
+        \[
+            \begin{align*}
+                (\omega, \dd\eta)
+                &= \int_M \dd\eta \wedge \star \omega \\
+                &= (-1)^{k}\int_{M}\eta \wedge (\dd \star\omega) \\
+                &= (-1)^{k}(-1)^{(n-k+1)(k-1)} \int_{M}\eta \wedge (\star\star\dd \star\omega) \\
+                &= (-1)^{k}(-1)^{(n-k+1)(k-1)} \int_M \langle \eta, \star\dd\star\omega\rangle\,\dd V_g \\
+                &= (-1)^{k}(-1)^{(n-k+1)(k-1)} (\star\dd\star\omega, \eta)
+            \end{align*}
+        \]
+        Now the prefactor is given by 
+        \[
+            \begin{align*}
+                (-1)^{k}(-1)^{(n-k+1)(k-1)}
+                &= (-1)^{k + nk - n - k^2 + k + k - 1} \\
+                &= (-1)^{3k}(-1)^{nk - n + 1}(-1)^{k^2} \\
+                &= (-1)^k(-1)^{nk - n + 1}(-1)^{k^2 - k} \\
+                &= (-1)^{nk + n + 1} \\
+                &= (-1)^{n(k+1) + 1}
+            \end{align*}
+        \]
+        here we made use of the fact that \(k^2 - k\) is the product of consective integrers and hence is even. Moreover 
+        we used \((-1)^n = (-1)^{-n}\). This means that the adjoint of \(\dd\) is the operator 
+        \(\dd^\ast = (-1)^{n(k+1) + 1}\star\dd\star\). Since this is the adjoint we note that
+        \(\dd^\ast: \Omega^{k}(M) \to \Omega^{k-1}(M)\). Moreover note that 
+        \[
+            \begin{align*}
+                (\dd^\ast\dd^\ast\omega, \eta)
+                &= (\omega, \dd\dd\eta) \\
+                &= 0
+            \end{align*}
+        \]
+        hence \((\dd^\ast)^2 = 0\). Using this we define the operator 
+        \(\Delta = (\dd + \dd^\ast)^2 = \dd\dd^\ast + \dd^\ast\dd\), this is called the Laplace-Beltrami operator.
       </p>
 
       <a href="../../index.html">Go back Home</a>
